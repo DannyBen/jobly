@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name        = 'jobly'
   s.version     = Jobly::VERSION
   s.date        = Date.today.to_s
-  s.summary     = "Job server toolbelt with API, CLI, Web UI and a Sidekiq heart"
+  s.summary     = "Compact job server with API, CLI, Web UI and a Sidekiq heart"
   s.description = "Execute background jobs and build tasks on this sidekiq-based job server"
   s.authors     = ["Danny Ben Shitrit"]
   s.email       = 'db@dannyben.com'
