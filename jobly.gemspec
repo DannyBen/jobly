@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.executables = ['jobly']
   s.homepage    = 'https://github.com/dannyben/jobly'
   s.license     = 'MIT'
-  s.required_ruby_version = ">= 2.4.0"
+  s.required_ruby_version = ">= 2.5.0"
 
   s.add_runtime_dependency 'mister_bin', '~> 0.6'
   s.add_runtime_dependency 'colsole', '~> 0.5'

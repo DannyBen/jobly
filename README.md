@@ -6,7 +6,7 @@ Jobly
 
 ---
 
-Job server toolbelt with API, CLI, Web UI and a Sidekiq heart.
+Compact job server with API, CLI, Web UI and a Sidekiq heart.
 
 ---
 
