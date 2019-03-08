@@ -2,8 +2,8 @@
 /spec/tmp
 /coverage
 /dev
-/doc
 /gems
+/jobs
 /Gemfile.lock
 /.yardoc
 /toc.txt
