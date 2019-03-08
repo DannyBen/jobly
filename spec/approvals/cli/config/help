@@ -1,0 +1,9 @@
+Show configuration options
+
+Usage:
+  jobly config
+  jobly config (-h|--help)
+
+Options:
+  -h --help
+    Show this help

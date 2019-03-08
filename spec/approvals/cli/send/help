@@ -1,0 +1,20 @@
+Send a job to the API
+
+Usage:
+  jobly send JOB [PARAMS...]
+  jobly send (-h|--help)
+
+Options:
+  -h --help
+    Show this help
+
+Parameters:
+  JOB
+    Job name
+
+  PARAMS
+    Parameters to pass to the job as key:value
+
+Examples:
+  jobly send Greet name:Bob
+  jobly send Deploy env:stage branch:master

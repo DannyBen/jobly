@@ -1,0 +1,25 @@
+Run a job locally
+
+Usage:
+  jobly run [--later] JOB [PARAMS...]
+  jobly run (-h|--help)
+
+Options:
+  -l, --later
+    Schedule the job to be executed later by a worker instead of running it
+    immediately
+
+  -h --help
+    Show this help
+
+Parameters:
+  JOB
+    Job name
+
+  PARAMS
+    Parameters to pass to the job as key:value
+
+Examples:
+  jobly run Greet name:Bob
+  jobly run --later Greet name:Bob
+  jobly run Deploy env:stage branch:master

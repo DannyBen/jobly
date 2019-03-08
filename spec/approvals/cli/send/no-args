@@ -1,0 +1,3 @@
+Usage:
+  jobly send JOB [PARAMS...]
+  jobly send (-h|--help)

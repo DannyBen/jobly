@@ -1,0 +1,12 @@
+Start the server
+
+Usage:
+  jobly server [--port NUMBER]
+  jobly server (-h|--help)
+
+Options:
+  -p, --port NUMBER
+    Set the port number [default: 3000]
+
+  -h --help
+    Show this help

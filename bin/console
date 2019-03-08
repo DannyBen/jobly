@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "irb"
+require "irb/completion" 
+
+require "jobly"
+require "jobly/jobs"
+
+include Jobly
+
+IRB.start

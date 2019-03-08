@@ -1,0 +1,12 @@
+Start a job worker
+
+Usage:
+  jobly worker [--concurrency COUNT]
+  jobly worker (-h|--help)
+
+Options:
+  -c, --concurrency COUNT
+    Number of parallel jobs [default: 4]
+
+  -h --help
+    Show this help

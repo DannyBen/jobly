@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require 'colsole'
+require 'jobly'
+require 'jobly/boot'
+
+include Colsole
+
+router = Jobly::CLI.router
+
+begin
+  exit router.run ARGV
+rescue => e
+  puts e.backtrace.reverse if ENV['DEBUG']
+  say! "!txtred!#{e.class}: #{e.message}"
+  exit 1
+end

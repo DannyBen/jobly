@@ -1,0 +1,44 @@
+require "runfile-tasks"
+require "byebug"
+require_relative 'lib/jobly'
+require_relative 'lib/jobly/version'
+
+title   "Jobly Developer Toolbelt"
+summary "Runfile tasks for building the Jobly gem"
+version Jobly::VERSION
+
+RunfileTasks::RubyGems.all 'jobly'
+RunfileTasks::Testing.rspec
+
+help   "Run foreman start"
+action :foreman, :f do
+  run! "foreman start"
+end
+
+help   "Run server"
+action :server, :s do
+  run! "bundle exec jobly server"
+end
+
+help   "Flush redis"
+action :flush do
+  run! "redis-cli -n 0 flushall"
+end
+
+help   "Run interactive console"
+action :console, :c do
+  run "bundle exec bin/console"
+end
+
+help   "Generate TOC to toc.txt"
+action :toc do
+  run! 'gh-md-toc README.md > toc.txt'
+end
+
+help   "Generate changelog"
+action :changelog do
+  run 'github_changelog_generator --cache-file tmp/changlog-cache'  
+  run "git commit -am 'update changelog' && git push"
+end
+
+require_relative 'debug.rb' if File.exist? 'debug.rb' 
