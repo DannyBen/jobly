@@ -44,7 +44,7 @@ in your browser.
 This will start a webserver with two primary entrypoints:
 
 - `/` (root) - a dashboard for your background job processes.
-- `/do/:job?param=value` - an API for executing jobs
+- `/do/JobName?param=value` - an API for executing jobs
 
 
 ### Worker
@@ -59,18 +59,15 @@ There are three ways to run a job from the command line:
 Run the job locally, without going through any of the background job 
 processing chain:
 
-```ruby    
-jobly run JobName param:value
-```
+    $ jobly run JobName param:value
+
 
 Run the job locally, but wait for a worker to process it.
 
-```ruby
-jobly run --later JobName param:value
-```
+
+    $ jobly run --later JobName param:value
+
 
 Send a job through the API (either localhost or remote).
 
-```ruby
-jobly send JobName param:value
-```
+    $ jobly send JobName param:value
