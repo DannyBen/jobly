@@ -16,6 +16,7 @@ Installation
     $ gem install jobly
 
 
+
 What's in the Box
 --------------------------------------------------
 
@@ -27,14 +28,18 @@ sidekiq backgronud jobs system. It includes the following components:
 - **Web API** - for executing jobs.
 - **Web Dashboard** - including job progress and status.
 
+
+
 Getting Started
 --------------------------------------------------
 
 TODO
 
 
+
 Usage
 --------------------------------------------------
+
 
 ### Server
 
@@ -64,10 +69,22 @@ processing chain:
 
 Run the job locally, but wait for a worker to process it.
 
-
     $ jobly run --later JobName param:value
 
 
 Send a job through the API (either localhost or remote).
 
     $ jobly send JobName param:value
+
+
+### Running jobs through the API
+
+TODO
+
+
+
+Building Jobs
+--------------------------------------------------
+
+TODO
+
