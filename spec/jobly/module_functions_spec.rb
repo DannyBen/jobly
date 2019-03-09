@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Jobly do
   let(:string_getters) do 
     %i[
-      environment api_base app_path full_app_path jobs_path full_jobs_path
+      environment api_url app_path full_app_path jobs_path full_jobs_path
       config_path full_config_path redis_url 
     ]
   end

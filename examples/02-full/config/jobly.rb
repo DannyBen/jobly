@@ -10,10 +10,10 @@ Jobly.configure do |config|
   # Default: ENV['JOBLY_ENVIRONMENT'] || 'development'
   config.environment = 'production'
 
-  # api_base: url
+  # api_url: url
   # Sets the URL to the API server.
   # Default: ENV['JOBLY_API_URL'] || 'http://localhost:3000/do'
-  config.api_base = 'http://localhost:3000/do'
+  config.api_url = 'http://localhost:3000/do'
 
   # app_path: relative or absolute path
   # Sets the path to the optional folder that may contain support files for

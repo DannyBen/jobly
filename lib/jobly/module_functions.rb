@@ -10,7 +10,7 @@ module Jobly
   def self.default_options
     {
       environment: ENV['JOBLY_ENVIRONMENT'] || 'development',
-      api_base: ENV['JOBLY_API_URL'] || 'http://localhost:3000/do',
+      api_url: ENV['JOBLY_API_URL'] || 'http://localhost:3000/do',
       app_path: ENV['JOBLY_APP_PATH'] || 'app',
       jobs_path: ENV['JOBLY_JOBS_PATH'] || "jobs",
       config_path: ENV['JOBLY_CONFIG_PATH'] || "config",

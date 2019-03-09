@@ -16,7 +16,7 @@ module Jobly
       def run
         job = args['JOB']
         params = args['PARAMS'].to_params
-        url = "#{Jobly.api_base}/#{job}"
+        url = "#{Jobly.api_url}/#{job}"
 
         response = if params.empty?
           HTTP.get url
