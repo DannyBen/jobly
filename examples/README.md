@@ -6,3 +6,6 @@ You can
 
 Each folder contains annotated example files and a README with further 
 explanations or commands to try out.
+
+Note that the examples build upon information provided by previous examples,
+so it is recommended you view them in order.
