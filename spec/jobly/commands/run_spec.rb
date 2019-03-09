@@ -26,6 +26,12 @@ describe Commands::RunCmd do
       end
     end
 
+    context "with job that contains slashes" do
+      it "converts the name to a namespaced job" do
+        expect{ subject.run %w[run Namespaced/Hello name:Bobby] }.to output_fixture('cli/run/hello-params')
+      end
+    end
+
     context "with --later" do
       it "sends the job to the work queue" do
         expect(Greet).to receive(:perform_async)

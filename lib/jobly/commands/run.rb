@@ -20,7 +20,7 @@ module Jobly
         job_class = Jobs.get_class! job
 
         if args['--later']
-          say "!txtgrn!Scheduling"
+          say "Scheduling !txtgrn!#{job_class}"
           if params.empty?
             job_class.perform_async
           else
@@ -28,7 +28,7 @@ module Jobly
           end
         
         else
-          say "!txtgrn!Running"
+          say "Running !txtgrn!#{job_class}"
           job_class.new.perform params
         end
       end

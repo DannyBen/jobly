@@ -29,13 +29,15 @@ module Jobly
       }.to_json
     end
 
-    get '/:job' do
-      job = params.delete :job
+    get '/*' do
+      job = params[:splat].first
+      params.delete :splat
       add_job job, params
     end
 
-    post '/:job' do
-      job = params.delete :job
+    post '/*' do
+      job = params[:splat].first
+      params.delete :splat
       add_job job, params
     end
 
