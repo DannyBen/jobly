@@ -15,6 +15,20 @@ Compact job server with API, CLI, Web UI and a Sidekiq heart.
 
 ---
 
+* [Installation](#installation)
+* [What's in the Box](#whats-in-the-box)
+* [Quick Start](#quick-start)
+* [Usage](#usage)
+   * [Server](#server)
+   * [Worker](#worker)
+   * [Running jobs from the command line](#running-jobs-from-the-command-line)
+   * [Running jobs through the API](#running-jobs-through-the-api)
+* [Building Jobs](#building-jobs)
+* [Loading Additional Code](#loading-additional-code)
+* [Configuration](#configuration)
+
+---
+
 Installation
 --------------------------------------------------
 
@@ -107,5 +121,55 @@ $ curl -XPOST localhost:3000/do/Build -d deploy=yes
 Building Jobs
 --------------------------------------------------
 
-TODO
+To build a jobs "workspace", start in an empty folder and create a `./jobs` 
+subfolder inside it. All your job classes go in this folder (configurable).
 
+All job classes will be loaded by any of Jobly's commands.
+
+A job class is a simple Ruby class inheriting from 
+`[Jobly::Job](/lib/jobly/job.rb)`.
+
+The only requirement is that your class implements an `execute` method that
+optionally accepts keyword arguments (recommended), or a hash.
+
+Example:
+
+```ruby
+class Hello < Jobly::Job
+  def execute(name: 'bob')
+    puts "Hello #{name}"
+    logger.info "said hello to #{name}"
+  end
+end
+```
+
+Note that these classes are simply Jobly-flavored sidekiq jobs, with these
+differences:
+
+- You need to implement `execute` instead of `perform`
+- Job arguments are defined as keyword arguments, instead of positional 
+  arguments.
+
+
+
+Loading Additional Code
+--------------------------------------------------
+
+In case your jobs require additional functionality, you may create the 
+`./app` folder as a sibling to the `./jobs` folder (configurable).
+
+Any ruby files in this folder (and subfolders) will be autmatically loaded
+and available to your jobs.
+
+
+Configuration
+--------------------------------------------------
+
+Configuring Jobly can be done by one of two methods:
+
+1. Setting environment variables.
+2. Adding a `./config/jobly.rb` file.
+
+See this [example config file](/examples/02-full/config/jobly.rb) for a full
+annotated configuration example and a list of options with their respective
+environment variables.
