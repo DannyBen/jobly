@@ -19,14 +19,14 @@ Compact job server with API, CLI, Web UI and a Sidekiq heart.
 * [What's in the Box](#whats-in-the-box)
 * [Quick Start](#quick-start)
 * [Usage](#usage)
-   * [Server](#server)
-   * [Worker](#worker)
-   * [Running jobs from the command line](#running-jobs-from-the-command-line)
-   * [Running jobs through the API](#running-jobs-through-the-api)
+    * [Server](#server)
+    * [Worker](#worker)
+    * [Running jobs from the command line](#running-jobs-from-the-command-line)
+    * [Running jobs through the API](#running-jobs-through-the-api)
 * [Building Jobs](#building-jobs)
 * [Loading Additional Code](#loading-additional-code)
 * [Configuration](#configuration)
-
+    * [Worker Configuration](#worker-configuration)
 ---
 
 Installation
@@ -173,3 +173,19 @@ Configuring Jobly can be done by one of two methods:
 See this [example config file](/examples/02-full/config/jobly.rb) for a full
 annotated configuration example and a list of options with their respective
 environment variables.
+
+
+### Worker Configuration
+
+For advanced configuration of the sidekiq worker, beyond what the 
+`jobly worker` command provides, you can place YAML files in the config 
+folder and point the workers to their config file with
+`jobly worker --config name`.
+
+These files are simply [sidekiq configuration files][1].
+
+See the [worker-config](/examples/06-worker-config) example for more 
+information.
+
+
+[1]: https://github.com/mperham/sidekiq/wiki/Advanced-Options

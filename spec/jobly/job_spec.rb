@@ -9,6 +9,26 @@ describe Job do
     expect(subject).to respond_to :expiration
   end
 
+  describe '::options' do
+    it "behaves as ::sidekiq_options" do
+      expect(described_class.options).to eq described_class.sidekiq_options
+    end
+  end
+
+  describe '::execute_async' do
+    it "behaves as ::perform_async" do
+      # TODO: Can we test this better?
+      expect(described_class).to respond_to :perform_async
+    end
+  end
+
+  describe '::execute' do
+    it "calls execute on a new instance" do
+      expect_any_instance_of(described_class).to receive(:execute).with name: 'jill'
+      described_class.execute name: 'jill'
+    end
+  end
+
   describe '#perform' do
     let(:params) { [["name", "bob"], ["year", 1987]] }
 

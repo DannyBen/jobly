@@ -1,12 +1,24 @@
 Start a job worker
 
 Usage:
-  jobly worker [--concurrency COUNT]
+  jobly worker [-c COUNT -C PATH (-q NAME)...]
   jobly worker (-h|--help)
 
 Options:
   -c, --concurrency COUNT
     Number of parallel jobs [default: 4]
 
+  -C, --config PATH
+    Specify a path to a YAML config file. The provided path should be relative
+    to the global config_path directory and without the yml extension
+
+  -q, --queue NAME[,WEIGHT]
+    Specify one or more queues that this worker should handle
+
   -h --help
     Show this help
+
+Examples:
+  jobly worker --concurrency 10
+  jobly worker -q critical -q default -q low
+  jobly worker --config primary
