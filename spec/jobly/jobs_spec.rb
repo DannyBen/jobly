@@ -25,9 +25,15 @@ describe Jobs do
     end
   end
 
-  describe '::namespaced_job' do
+  describe '::full_job_name' do
     it "returns job class as a string" do
-      expect(described_class.namespaced_job 'Hello').to eq 'Hello'
+      expect(described_class.full_job_name 'Hello').to eq 'Hello'
+    end
+
+    context "when the input contains a slash" do
+      it "replaces it with ::" do
+        expect(described_class.full_job_name 'App/World').to eq 'App::World'
+      end
     end
 
     context "when Jobly.jobs_namespace is set" do
@@ -35,8 +41,15 @@ describe Jobs do
       after  { Jobly.jobs_namespace = nil }
 
       it "returns namespace::job" do
-        expect(described_class.namespaced_job 'World').to eq 'Hello::World'
+        expect(described_class.full_job_name 'World').to eq 'Hello::World'
+      end
+
+      context "when the input contains a slash" do
+        it "replaces it with ::" do
+          expect(described_class.full_job_name 'App/World').to eq 'Hello::App::World'
+        end
       end
     end
+
   end
 end
