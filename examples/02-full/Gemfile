@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+
+gem "byebug"
+gem "foreman"
+gem "jobly"
+gem "remote_syslog_logger"
+gem "tty-command"

@@ -8,7 +8,7 @@ module Jobly
       usage "jobly config (-h|--help)"
 
       def run
-        line "custom config file", short_config_path, Jobly.custom_config?
+        line "custom config file", short_config_path, !Jobly.custom_config?
         Jobly.options.each do |key, value|
           if key.to_s.end_with? '_path'
             line key, value, !Dir.exist?(value)
