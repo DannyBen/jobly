@@ -38,3 +38,4 @@ curl localhost:3000/do/Build?deploy=no
 
 # View the log
 cat jobly.log
+```

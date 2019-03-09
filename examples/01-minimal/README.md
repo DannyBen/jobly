@@ -25,6 +25,4 @@ jobly send Hello
 
 # Schedule a job by accessing the API:
 open http://localhost:3000/do/Hello?name=Guest
-
-
-
+```
