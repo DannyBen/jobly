@@ -2,4 +2,4 @@ source "https://rubygems.org"
 
 gem "foreman"
 gem "jobly"
-gem "tty-command"
+gem "remote_syslog_logger"
