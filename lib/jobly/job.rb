@@ -19,20 +19,59 @@ module Jobly
       def execute(*args)
         new.execute *args
       end
+
+      # Allow calling a job with `JobName.perform` instead of 
+      # `JobName.new.perform`, for consistency.
+      def perform(*args)
+        new.perform *args
+      end
+
+      # Add support for running code before execution
+      def before(&block)
+        before_blocks << block
+      end
+
+      # Add support for running code after execution
+      def after(&block)
+        after_blocks << block
+      end
+
+      def before_blocks
+        @before_blocks ||= []
+      end
+
+      def after_blocks
+        @after_blocks ||= []
+      end
+
     end
+
+    attr_reader :params
 
     # This is the method sidekiq will call. We capture this call and convert
     # the hash argument which was converted to array on sidekiq's side, back
     # to a hash so we can forward to the job's `execute` method, which may 
     # implement keyword args.
     def perform(params={})
+      @params = params
+
+      self.class.before_blocks.each do |block|
+        instance_eval &block
+      end
+
       params = params.to_h.transform_keys(&:to_sym)
       params.empty? ? execute : execute(params)
+
+      self.class.after_blocks.each do |block|
+        instance_eval &block
+      end
+
     end
 
     # Inheriting classes must implement this method only.
     def execute(params={})
       raise NotImplementedError
     end
+
   end
 end

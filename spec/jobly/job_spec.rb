@@ -29,6 +29,14 @@ describe Job do
     end
   end
 
+  describe '::before and ::after' do
+    subject { Sleep }
+
+    it "run blocks of code around #perform" do
+      expect{ subject.perform this_many: 7 }.to output_fixture('job/before-after')
+    end
+  end
+
   describe '#perform' do
     let(:params) { [["name", "bob"], ["year", 1987]] }
 
