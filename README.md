@@ -24,9 +24,11 @@ Compact job server with API, CLI, Web UI and a Sidekiq heart.
     * [Running jobs from the command line](#running-jobs-from-the-command-line)
     * [Running jobs through the API](#running-jobs-through-the-api)
 * [Building Jobs](#building-jobs)
+    * [The Job Class](#the-job-class)
 * [Loading Additional Code](#loading-additional-code)
 * [Configuration](#configuration)
     * [Worker Configuration](#worker-configuration)
+
 ---
 
 Installation
@@ -126,8 +128,11 @@ subfolder inside it. All your job classes go in this folder (configurable).
 
 All job classes will be loaded by any of Jobly's commands.
 
+
+### The Job Class
+
 A job class is a simple Ruby class inheriting from 
-`[Jobly::Job](/lib/jobly/job.rb)`.
+[`Jobly::Job`](/lib/jobly/job.rb).
 
 The only requirement is that your class implements an `execute` method that
 optionally accepts keyword arguments (recommended), or a hash.
@@ -144,12 +149,33 @@ end
 ```
 
 Note that these classes are simply Jobly-flavored sidekiq jobs, with these
-differences:
+key differences:
 
 - You need to implement `execute` instead of `perform`
 - Job arguments are defined as keyword arguments, instead of positional 
   arguments.
 
+#### Job Options
+
+Setting job options can be done like this:
+
+```ruby
+class Deploy < Jobly::Job
+  queue 'critical'
+  backtrace 10
+  retries 3
+  
+  def execute
+    puts "Deploying"
+  end
+end
+```
+
+| Key         | Default   | Purpose       |
+|-------------|-----------|---------------|
+| `queue`     | `default` | set the name of the queue for this job. |
+| `retries`   |  `5`      | number of times to retry on failure. |
+| `backtrace` |  `5`      | number of backtrace lines to show in case of failures. Can be `true`, `false` or a number of lines to save. |
 
 
 Loading Additional Code
