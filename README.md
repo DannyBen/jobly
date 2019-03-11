@@ -188,7 +188,7 @@ class Deploy < Jobly::Job
     logger.info "Starting"
   end
 
-  before do
+  after do
     logger.info "Done"
   end
   
