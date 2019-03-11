@@ -178,6 +178,27 @@ end
 | `backtrace` |  `5`      | number of backtrace lines to show in case of failures. Can be `true`, `false` or a number of lines to save. |
 
 
+#### Before and After Blocks
+
+Use the following syntax to execute code before or after the job runs:
+
+```ruby
+class Deploy < Jobly::Job
+  before do
+    logger.info "Starting"
+  end
+
+  before do
+    logger.info "Done"
+  end
+  
+  def execute
+    puts "Deploying"
+  end
+end
+```
+
+
 Loading Additional Code
 --------------------------------------------------
 
