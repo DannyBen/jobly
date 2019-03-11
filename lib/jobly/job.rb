@@ -3,6 +3,8 @@ module Jobly
     include Sidekiq::Worker
     include Sidekiq::Status::Worker
     include JobExtensions::OptionAccessors
+    include JobExtensions::Actions
+    using KeywordArgs
 
     sidekiq_options retry: 5, backtrace: 5
     attr_reader :params
@@ -24,24 +26,6 @@ module Jobly
         new.perform *args
       end
 
-      # Add support for running code before execution
-      def before(&block)
-        befores << block
-      end
-
-      # Add support for running code after execution
-      def after(&block)
-        afters << block
-      end
-
-      def befores
-        @befores ||= []
-      end
-
-      def afters
-        @afters ||= []
-      end
-
     end
 
     # This is the method sidekiq will call. We capture this call and convert
@@ -50,23 +34,25 @@ module Jobly
     # implement keyword args.
     def perform(params={})
       @params = params
-      run_blocks self.class.befores
+      run_actions :before
 
-      params = params.to_h.transform_keys(&:to_sym)
-      params.empty? ? execute : execute(params)
+      begin
+        params.empty? ? execute : execute(params.to_kwargs)
+        run_actions :success
 
-      run_blocks self.class.afters
+      rescue
+        run_actions :failure
+        raise
+      
+      ensure
+        run_actions :after
+      
+      end
     end
 
     # Inheriting classes must implement this method only.
     def execute(params={})
       raise NotImplementedError
-    end
-
-  protected
-
-    def run_blocks(blocks)
-      blocks.each { |block| instance_eval &block }
     end
 
   end
