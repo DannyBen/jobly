@@ -9,12 +9,6 @@ describe Job do
     expect(subject).to respond_to :expiration
   end
 
-  describe '::options' do
-    it "behaves as ::sidekiq_options" do
-      expect(described_class.options).to eq described_class.sidekiq_options
-    end
-  end
-
   describe '::execute_async' do
     it "behaves as ::perform_async" do
       # TODO: Can we test this better?
