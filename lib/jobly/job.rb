@@ -34,11 +34,19 @@ module Jobly
     # implement keyword args.
     def perform(params={})
       @params = params
-      run_actions actions[:before]
+      run_actions :before
 
-      params.empty? ? execute : execute(params.to_kwargs)
+      begin
+        params.empty? ? execute : execute(params.to_kwargs)
+        run_actions :success
 
-      run_actions actions[:after]
+      rescue
+        run_actions :failure
+      
+      ensure
+        run_actions :after
+      
+      end
     end
 
     # Inheriting classes must implement this method only.

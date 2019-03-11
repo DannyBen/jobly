@@ -17,6 +17,16 @@ module Jobly
           actions[:after] << (sym || block)
         end
 
+        def on_success(sym = nil, &block)
+          actions[:success] ||= []
+          actions[:success] << (sym || block)
+        end
+
+        def on_failure(sym = nil, &block)
+          actions[:failure] ||= []
+          actions[:failure] << (sym || block)
+        end
+
         def actions
           @actions ||= {}
         end
@@ -29,9 +39,9 @@ module Jobly
       end
 
       def run_actions(list)
-        return unless list
+        return unless actions[list]
 
-        list.each do |action|
+        actions[list].each do |action|
           if action.is_a? Symbol
             send action
           else
