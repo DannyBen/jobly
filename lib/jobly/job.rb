@@ -25,21 +25,19 @@ module Jobly
       end
 
       # Add support for running code before execution
-      def before(&block)
-        befores << block
+      def before(sym = nil, &block)
+        actions[:before] ||= []
+        actions[:before] << (sym || block)
       end
 
       # Add support for running code after execution
-      def after(&block)
-        afters << block
+      def after(sym = nil, &block)
+        actions[:after] ||= []
+        actions[:after] << (sym || block)
       end
 
-      def befores
-        @befores ||= []
-      end
-
-      def afters
-        @afters ||= []
+      def actions
+        @actions ||= {}
       end
 
     end
@@ -50,12 +48,12 @@ module Jobly
     # implement keyword args.
     def perform(params={})
       @params = params
-      run_blocks self.class.befores
+      run_actions self.class.actions[:before]
 
       params = params.to_h.transform_keys(&:to_sym)
       params.empty? ? execute : execute(params)
 
-      run_blocks self.class.afters
+      run_actions self.class.actions[:after]
     end
 
     # Inheriting classes must implement this method only.
@@ -65,8 +63,16 @@ module Jobly
 
   protected
 
-    def run_blocks(blocks)
-      blocks.each { |block| instance_eval &block }
+    def run_actions(list)
+      return unless list
+
+      list.each do |action|
+        if action.is_a? Symbol
+          send action
+        else
+          instance_eval &action
+        end
+      end
     end
 
   end
