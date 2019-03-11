@@ -42,6 +42,7 @@ module Jobly
 
       rescue
         run_actions :failure
+        raise
       
       ensure
         run_actions :after
