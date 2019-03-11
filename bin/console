@@ -5,6 +5,7 @@ require "irb/completion"
 
 require "jobly"
 require "jobly/jobs"
+require "jobly/boot"
 
 include Jobly
 
