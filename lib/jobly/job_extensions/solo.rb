@@ -1,3 +1,5 @@
+require 'jobly/job_extensions/actions'
+
 module Jobly
   module JobExtensions
     module Solo
