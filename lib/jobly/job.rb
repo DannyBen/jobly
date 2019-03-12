@@ -4,6 +4,7 @@ module Jobly
     include Sidekiq::Status::Worker
     include JobExtensions::OptionAccessors
     include JobExtensions::Actions
+    include JobExtensions::Solo
     using KeywordArgs
 
     sidekiq_options retry: 5, backtrace: 5
@@ -34,20 +35,7 @@ module Jobly
     # implement keyword args.
     def perform(params={})
       @params = params
-      run_actions :before
-
-      begin
-        params.empty? ? execute : execute(params.to_kwargs)
-        run_actions :success
-
-      rescue
-        run_actions :failure
-        raise
-      
-      ensure
-        run_actions :after
-      
-      end
+      run_to_completion if run_before_filter
     end
 
     # Inheriting classes must implement this method only.
@@ -55,5 +43,29 @@ module Jobly
       raise NotImplementedError
     end
 
+  private
+
+    def run_before_filter
+      run_actions :before
+      if skipped?
+        run_actions :skip
+        run_actions :after
+        return false
+      end
+      return true
+    end
+
+    def run_to_completion
+      params.empty? ? execute : execute(params.to_kwargs)
+      run_actions :success
+
+    rescue
+      run_actions :failure
+      raise
+    
+    ensure
+      run_actions :after
+      
+    end
   end
 end
