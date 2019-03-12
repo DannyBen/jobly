@@ -26,15 +26,17 @@ Compact job server with API, CLI, Web UI and a Sidekiq heart.
 * [What's in the Box](#whats-in-the-box)
 * [Quick Start](#quick-start)
 * [Usage](#usage)
-    * [Server](#server)
-    * [Worker](#worker)
-    * [Running jobs from the command line](#running-jobs-from-the-command-line)
-    * [Running jobs through the API](#running-jobs-through-the-api)
+  * [Server](#server)
+  * [Worker](#worker)
+  * [Running jobs from the command line](#running-jobs-from-the-command-line)
+  * [Running jobs through the API](#running-jobs-through-the-api)
 * [Building Jobs](#building-jobs)
-    * [The Job Class](#the-job-class)
+  * [The Job Class](#the-job-class)
+    * [Job Options](#job-options)
+    * [Before, After, On Failure and On Success](#before-after-on-failure-and-on-success)
 * [Loading Additional Code](#loading-additional-code)
 * [Configuration](#configuration)
-    * [Worker Configuration](#worker-configuration)
+  * [Worker Configuration](#worker-configuration)
 
 ---
 
@@ -167,7 +169,15 @@ key differences:
 
 #### Job Options
 
-Setting job options can be done like this:
+The `Jobly::Job` class supports these options:
+
+| Key         | Default   | Purpose       
+|-------------|-----------|---------------
+| `queue`     | `default` | set the name of the queue for this job.
+| `retries`   |  `5`      | number of times to retry on failure.
+| `backtrace` |  `5`      | number of backtrace lines to show in case of failures. Can be `true`, `false` or a number of lines to save.
+
+For example:
 
 ```ruby
 class Deploy < Jobly::Job
@@ -181,29 +191,38 @@ class Deploy < Jobly::Job
 end
 ```
 
-| Key         | Default   | Purpose       |
-|-------------|-----------|---------------|
-| `queue`     | `default` | set the name of the queue for this job. |
-| `retries`   |  `5`      | number of times to retry on failure. |
-| `backtrace` |  `5`      | number of backtrace lines to show in case of failures. Can be `true`, `false` or a number of lines to save. |
 
+#### Before, After, On Failure and On Success
 
-#### Before and After Blocks
+The `Jobly::Job` class supports these callback methods:
 
-Use the following syntax to execute code before or after the job runs:
+| Method       | Description 
+|--------------|-------------
+| `before`     | Executes before the job starts
+| `on_success` | Executes after the job finishes, and only if it succeeds
+| `on_failure` | Executes after the job finishes, and only if it fails
+| `after`      | Executes after the job finishes, regardless of success or failure
+
+Each callback method can either be a block or a symbol that points to a local
+method. WHen using a block, you will have the `params` variable available, with
+all the parameteres sent to the job.
+
+For example:
 
 ```ruby
-class Deploy < Jobly::Job
+class Greet < Jobly::Job
   before do
-    logger.info "Starting"
+    logger.info "Starting with #{params[:message]}"
   end
 
-  after do
-    logger.info "Done"
-  end
+  after :reboot_computer
   
-  def execute
-    puts "Deploying"
+  def execute(message: "Hello")
+    puts message
+  end
+
+  def reboot_computer
+    system "reboot"
   end
 end
 ```
