@@ -199,7 +199,7 @@ The `Jobly::Job` class supports these callback methods:
 | Method       | Description 
 |--------------|-------------
 | `before`     | Executes before the job starts
-| `on_skip`    | Executes if `on_skip` was called from the `before` block
+| `on_skip`    | Executes if `skip_job` was called from the `before` block
 | `on_success` | Executes after the job finishes, and only if it succeeds
 | `on_failure` | Executes after the job finishes, and only if it fails
 | `after`      | Executes after the job finishes, regardless of success or failure
