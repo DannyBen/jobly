@@ -1,7 +1,6 @@
 module Jobly
   module JobExtensions
     module Actions
-
       def self.included(base)
         base.extend ClassMethods
       end
@@ -27,9 +26,22 @@ module Jobly
           actions[:failure] << (sym || block)
         end
 
+        def on_skip(sym = nil, &block)
+          actions[:skip] ||= []
+          actions[:skip] << (sym || block)
+        end
+
         def actions
           @actions ||= {}
         end
+      end
+
+      def skip_job(reason=nil)
+        @skipped = true
+      end
+
+      def skipped?
+        @skipped
       end
 
     protected

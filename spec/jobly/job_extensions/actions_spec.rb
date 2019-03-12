@@ -13,4 +13,13 @@ describe JobExtensions::Actions do
         .and output_fixture('job_extensions/actions-failure')
     end
   end
+
+  describe '#skip_job' do
+    subject { FilterJob }
+
+    it "avoid running the job and raises JobSkipped" do
+      expect{ subject.perform }.to output_fixture('job_extensions/actions-skip')
+    end
+    
+  end
 end
