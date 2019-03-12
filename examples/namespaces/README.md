@@ -15,7 +15,7 @@ It illustrates:
    see the jobs folder.
 
 ```shell
-cd examples/04-namespaces
+cd examples/namespaces
 
 # Run the namespaced job that is found in the root namespace `Jobs`
 jobly run Hello

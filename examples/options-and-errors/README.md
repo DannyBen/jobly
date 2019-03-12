@@ -9,7 +9,7 @@ This example illustrates setting the job options: `backtrace`, `queue` and
 
 
 ```shell
-cd examples/07-options-and-errors
+cd examples/options-and-errors
 
 # Start the server and the worker
 foreman start

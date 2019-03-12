@@ -9,7 +9,7 @@ This example illustrates the use of `before`, `after`, `on_success`, and
 
 
 ```shell
-cd examples/08-before-after-actions
+cd examples/before-after-actions
 
 # Run the job in its successful form
 jobly run Actions
