@@ -15,8 +15,8 @@ module Jobly
       jobs_path: ENV['JOBLY_JOBS_PATH'] || "jobs",
       config_path: ENV['JOBLY_CONFIG_PATH'] || "config",
       redis_url: ENV['JOBLY_REDIS_URL'] || "redis://localhost:6379/0",
-      status_expiration: 30,
-      jobs_namespace: nil,
+      status_expiration: ENV['JOBLY_STATUS_EXPIRATION']&.to_i || 30,
+      jobs_namespace: ENV['JOBLY_JOBS_NAMESPACE'],
       logger: nil,
     }
   end
