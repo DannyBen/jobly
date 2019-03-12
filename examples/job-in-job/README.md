@@ -14,7 +14,7 @@ Two approaches are possible:
 
 
 ```shell
-cd examples/05-job-in-job
+cd examples/job-in-job
 
 # Start the server and worker
 foreman start

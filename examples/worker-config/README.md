@@ -12,7 +12,7 @@ Note that the same can also be achieved through the command line, without
 using a config file.
 
 ```shell
-cd examples/06-worker-config
+cd examples/worker-config
 
 # Start the server and worker
 # Note that the `Procfile` is defined to run `jobly worker --config worker`
