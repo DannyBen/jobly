@@ -42,14 +42,14 @@ Jobly.configure do |config|
   # status_expiration: minutes
   # Sets the number of minutes that completed jobs are kept in the Statuses
   # tab.
-  # Default: 30
+  # Default: ENV['JOBLY_STATUS_EXPIRATION'] || 30
   config.status_expiration = 5
 
   # jobs_namespace: string
   # Sets the namespace (module name) that your jobs are defined in. For 
   # example, if your Job classes are in fact defined as `MyJobs::SomeJob` 
   # then this option should be set to `MyJobs`.
-  # Default: nil (no namespace)
+  # Default: ENV['JOBLY_JOBS_NAMESPACE'] || nil
   config.jobs_namespace = nil
 
   # logger: logger instance
