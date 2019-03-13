@@ -36,7 +36,7 @@ module Jobly
         end
       end
 
-      def skip_job(reason=nil)
+      def skip_job
         @skipped = true
       end
 

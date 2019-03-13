@@ -1,6 +1,7 @@
 require 'requires'
 require 'byebug' if ENV['BYEBUG']
 
+requires 'jobly/extensions'
 requires 'jobly/refinements'
 requires 'jobly/job_extensions'
 require 'jobly/exceptions'

@@ -10,6 +10,43 @@ module Jobly
       end
 
       module ClassMethods
+        attr_reader :solo_key
+
+        def solo(expire: 1.hour, key: nil)
+          @solo_key = key if key
+          before { solo_locked? ? skip_job : solo_lock(expire) }
+          after  { solo_unlock }
+        end
+      end
+
+      def solo_key
+        @solo_key ||= (self.class.solo_key || solo_key!)
+      end
+
+      def solo_key!
+        Digest::MD5.hexdigest "#{self.class.name}:#{params}"
+      end
+
+      def solo_full_key
+        "jobly:solo:#{solo_key}"
+      end
+
+      def solo_locked?
+        Sidekiq.redis do |redis|
+          redis.keys(solo_full_key).count >= 1
+        end
+      end
+
+      def solo_lock(expire = 1.hour)
+        Sidekiq.redis do |redis|
+          redis.setex(solo_full_key, expire, "1")
+        end
+      end
+
+      def solo_unlock
+        Sidekiq.redis do |redis|
+          redis.del solo_full_key
+        end
       end
 
     end
