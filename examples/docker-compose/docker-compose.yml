@@ -25,7 +25,6 @@ services:
 
   send:
     <<: *default
-    image: temp/jobly
     depends_on: [web]
     entrypoint: jobly send
     command: Hello

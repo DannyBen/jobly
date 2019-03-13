@@ -48,6 +48,7 @@ Installation
 
     $ gem install jobly
 
+Or with the official [Jobly docker image][2].
 
 
 What's in the Box
@@ -270,3 +271,4 @@ information.
 
 
 [1]: https://github.com/mperham/sidekiq/wiki/Advanced-Options
+[2]: https://github.com/dannyben/docker-jobly
