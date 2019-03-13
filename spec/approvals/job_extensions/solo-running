@@ -1,0 +1,4 @@
+before called
+execute called
+solo_locked? returned true
+after called
