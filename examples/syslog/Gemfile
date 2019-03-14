@@ -1,5 +1,0 @@
-source "https://rubygems.org"
-
-gem "foreman"
-gem "jobly"
-gem "remote_syslog_logger"

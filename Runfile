@@ -30,11 +30,6 @@ action :console, :c do
   run "bundle exec bin/console"
 end
 
-help   "Generate TOC to toc.txt"
-action :toc do
-  run! 'gh-md-toc README.md > toc.txt'
-end
-
 help   "Generate changelog"
 action :changelog do
   run 'github_changelog_generator --cache-file tmp/changlog-cache'  
