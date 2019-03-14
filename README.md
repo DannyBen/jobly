@@ -52,5 +52,5 @@ Documentation
 Visit the [Jobly Documentation][1].
 
 
-[1]: https://jobly.dannyben.com
+[1]: https://jobly.dannyb.co
 [2]: https://github.com/dannyben/docker-jobly
