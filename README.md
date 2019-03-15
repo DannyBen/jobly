@@ -22,9 +22,6 @@ Compact job server with API, CLI, Web UI and a Sidekiq heart.
 
 ---
 
-Follow development progress:  
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/DannyBen/jobly.svg?columns=all&style=flat-square)](https://waffle.io/DannyBen/jobly)
-
 Installation
 --------------------------------------------------
 

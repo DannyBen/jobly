@@ -7,5 +7,5 @@
 [0m           redis_url  [0;32mredis://localhost:6379/0
 [0m   status_expiration  [0;32m30
 [0m      jobs_namespace  [0;32m
-[0m              logger  [0;32m
+[0m                 log  [0;32m
 [0m
