@@ -53,6 +53,11 @@ module Jobly
     @logger = nil
   end
 
+  def self.logger=(target)
+    options[:log] = :custom
+    @logger = target
+  end
+
   def self.full_app_path
     File.expand_path app_path
   end
