@@ -17,7 +17,7 @@ module Jobly
       redis_url: ENV['JOBLY_REDIS_URL'] || "redis://localhost:6379/0",
       status_expiration: ENV['JOBLY_STATUS_EXPIRATION']&.to_i || 30,
       jobs_namespace: ENV['JOBLY_JOBS_NAMESPACE'],
-      logger: nil,
+      log: ENV['JOBLY_LOG'],
     }
   end
 
@@ -41,6 +41,16 @@ module Jobly
 
   def self.options
     @options ||= default_options.dup
+  end
+
+  def self.logger
+    return nil unless log
+    @logger ||= Log.new log
+  end
+
+  def self.log=(target)
+    options[:log] = target
+    @logger = nil
   end
 
   def self.full_app_path
