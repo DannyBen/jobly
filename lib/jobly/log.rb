@@ -3,7 +3,7 @@ require 'uri'
 
 module Jobly
   module Log
-    def self.new(target)
+    def self.new(target = nil)
       if !target or target.to_sym == :stdout or target == STDOUT
         return Logger.new STDOUT
       end

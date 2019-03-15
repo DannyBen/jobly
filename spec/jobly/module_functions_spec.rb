@@ -39,10 +39,10 @@ describe Jobly do
     it "refreshes the ::logger as well" do
       expect(described_class.logger).to be_nil
 
-      described_class.log = 'out.log'
+      described_class.log = 'spec/tmp/out.log'
 
       expect(described_class.logger.instance_variable_get(:@logdev).dev.inspect)
-        .to eq "#<File:out.log>"
+        .to eq "#<File:spec/tmp/out.log>"
     end
   end
 
@@ -54,7 +54,7 @@ describe Jobly do
     end
 
     context "when Job.log is not nil" do
-      before { described_class.log = 'log.log' }
+      before { described_class.log = 'spec/tmp/log.log' }
       after { described_class.log = nil }
 
       it "returns a Logger" do

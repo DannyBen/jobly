@@ -13,6 +13,7 @@ require 'jobly/boot'
 include Jobly
 
 require_relative 'spec_mixin'
+system 'mkdir spec/tmp' unless Dir.exist? 'spec/tmp'
 
 RSpec.configure do |c|
   c.include SpecMixin
