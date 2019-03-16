@@ -11,11 +11,10 @@ Jobly.config_path = 'spec/fixtures/config'
 require 'jobly/boot'
 
 include Jobly
-
 require_relative 'spec_mixin'
-system 'mkdir spec/tmp' unless Dir.exist? 'spec/tmp'
+include SpecMixin
 
-ENV['JOBLY_TEST_MODE'] = '1'
+system 'mkdir spec/tmp' unless Dir.exist? 'spec/tmp'
 
 RSpec.configure do |c|
   c.include SpecMixin

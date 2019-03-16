@@ -1,3 +1,6 @@
 [0;32m200 OK
-[0m--- body
-...
+[0m---
+received:
+  name: Bobby
+  splat:
+  - Greet

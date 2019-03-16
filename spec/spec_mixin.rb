@@ -1,26 +1,22 @@
 require 'stringio'
+require 'http'
 
 module SpecMixin
-  # def stdin_send(*args)
-  #   begin
-  #     $stdin = StringIO.new
-  #     $stdin.puts(args.shift) until args.empty?
-  #     $stdin.rewind
-  #     yield
-  #   ensure
-  #     $stdin = STDIN
-  #   end
-  # end
+  def require_mock_server!
+    response = HTTP.get('http://localhost:3000/')
+    if response.status.ok?
+      response = response.parse
+      raise "Please start the mock server (something else is running on port 3000)" unless response['mockserver'] == 'online'
+    else
+      # :nocov:
+      raise HTTPError, "Please start the mock server (got #{response.code} #{response.reason})"
+      # :nocov:
+    end
 
-  # def supress_output
-  #   original_stdout = $stdout
-  #   $stdout = StringIO.new
-  #   begin
-  #     yield
-  #   ensure
-  #     $stdout = original_stdout
-  #   end
-  # end
+  rescue HTTP::ConnectionError
+    # :nocov:
+    raise "Please start the mock server"
+    # :nocov:
 
-  # Put more helper methods here
+  end
 end

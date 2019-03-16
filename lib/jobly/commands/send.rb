@@ -18,19 +18,30 @@ module Jobly
         params = args['PARAMS'].to_params
         url = "#{Jobly.api_url}/#{job}"
 
-        response = if params.empty?
-          HTTP.get url
-        else
-          HTTP.get url, params: params
-        end
+        args = [url]
+        args << { params: params } unless params.empty?
 
-        if response.code != 200
-          say "!txtred!#{response.code}"
-        else
-          say "!txtgrn!200 OK"
-        end
-        
+        response = client.get *args
+
+        raise HTTPError, "#{response.code} #{response.reason}" unless response.status.ok?
+
+        say "!txtgrn!#{response.code} #{response.reason}"
         lp response.parse
+      end
+
+    private
+
+      def client
+        @client ||= client!
+      end
+
+      def client!
+        if Jobly.auth
+          user, pass = Jobly.auth.split ':'
+          HTTP.basic_auth user: user, pass: pass
+        else
+          HTTP
+        end
       end
 
     end

@@ -18,6 +18,7 @@ module Jobly
       status_expiration: ENV['JOBLY_STATUS_EXPIRATION']&.to_i || 30,
       jobs_namespace: ENV['JOBLY_JOBS_NAMESPACE'],
       log: ENV['JOBLY_LOG'],
+      auth: ENV['JOBLY_AUTH'],
       mounts: nil,
     }
   end

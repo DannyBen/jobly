@@ -1,3 +1,0 @@
----
-"/": !ruby/class 'Sidekiq::Web'
-"/do": !ruby/class 'Jobly::Server'
