@@ -10,7 +10,7 @@ describe Jobly do
 
   let(:other_getters) do
     %i[
-      log logger jobs_namespace status_expiration
+      auth log logger jobs_namespace status_expiration
     ]
   end
 

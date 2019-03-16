@@ -17,7 +17,7 @@ describe Commands::SendCmd do
     end
   end
 
-  context "with a job argument", :focus do
+  context "with a job argument" do
     it "calls the api" do
       subject.run %w[send Greet]
       expect{ subject.run %w[send Greet] }.to output_fixture('cli/send/greet')
@@ -32,7 +32,7 @@ describe Commands::SendCmd do
 
     context "when the api returns a non-200 code" do
       it "shows the status code" do
-        expect{ subject.run %w[send Error] }.to output_fixture('cli/send/greet-error')
+        expect{ subject.run %w[send Error] }.to raise_error(Jobly::HTTPError)
       end
     end
   end

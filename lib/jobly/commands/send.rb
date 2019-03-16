@@ -23,19 +23,25 @@ module Jobly
 
         response = client.get *args
 
-        if response.code == 200
-          say "!txtgrn!200 OK"
-        else
-          say "!txtred!#{response.code}"
-        end
-        
+        raise HTTPError, "#{response.code} #{response.reason}" unless response.status.ok?
+
+        say "!txtgrn!#{response.code} #{response.reason}"
         lp response.parse
       end
 
     private
 
       def client
-        @client ||= HTTP.basic_auth user: "user", pass: "pass"
+        @client ||= client!
+      end
+
+      def client!
+        if Jobly.auth
+          user, pass = Jobly.auth.split ':'
+          HTTP.basic_auth user: user, pass: pass
+        else
+          HTTP
+        end
       end
 
     end

@@ -15,8 +15,11 @@ module Jobly
       mounts.merge! Jobly.mounts if Jobly.mounts
 
       Rack::Builder.new do
-        use Rack::Auth::Basic do |username, password|
-          username == 'user' && password == 'pass'
+        if Jobly.auth
+          user, pass = Jobly.auth.split ':'
+          use Rack::Auth::Basic do |username, password|
+            username == user && password == pass
+          end
         end
 
         run Rack::URLMap.new mounts
