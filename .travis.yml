@@ -10,7 +10,7 @@ notifications:
   email: false
 
 before_script:
-- run mockserver --daemon
+- bundle exec run mockserver --daemon
 
 before_install:
 - gem install bundler
