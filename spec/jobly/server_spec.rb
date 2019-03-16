@@ -5,7 +5,7 @@ describe Server do
     it "serves the sidekiq dashboard" do
       get '/'
       expect(last_response).to be_ok
-      expect(last_response.body).to include("<title>\[DEVELOPMENT\] Sidekiq</title>")
+      expect(last_response.body).to match(/<title>\[(DEVELOPMENT|TEST)\] Sidekiq<\/title>/)
     end
   end
 
