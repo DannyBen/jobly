@@ -15,6 +15,8 @@ include Jobly
 require_relative 'spec_mixin'
 system 'mkdir spec/tmp' unless Dir.exist? 'spec/tmp'
 
+ENV['JOBLY_TEST_MODE'] = '1'
+
 RSpec.configure do |c|
   c.include SpecMixin
   c.include Rack::Test::Methods
