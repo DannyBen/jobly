@@ -7,4 +7,10 @@ mounts = {
   '/do' => Jobly::Server
 }
 
-run Rack::URLMap.new mounts
+mounts.merge! Jobly.mounts if Jobly.mounts
+
+if ENV['JOBLY_TEST_MODE']
+  lp mounts
+else
+  run Rack::URLMap.new mounts
+end
