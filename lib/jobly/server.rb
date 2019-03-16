@@ -17,7 +17,7 @@ module Jobly
       Rack::Builder.new do
         if Jobly.auth
           user, pass = Jobly.auth.split ':'
-          use Rack::Auth::Basic do |username, password|
+          use Rack::Auth::Basic, "Jobly" do |username, password|
             username == user && password == pass
           end
         end
