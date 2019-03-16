@@ -19,7 +19,6 @@ describe Commands::SendCmd do
 
   context "with a job argument" do
     it "calls the api" do
-      subject.run %w[send Greet]
       expect{ subject.run %w[send Greet] }.to output_fixture('cli/send/greet')
     end
 
@@ -32,7 +31,34 @@ describe Commands::SendCmd do
 
     context "when the api returns a non-200 code" do
       it "shows the status code" do
-        expect{ subject.run %w[send Error] }.to raise_error(Jobly::HTTPError)
+        expect{ subject.run %w[send Error] }.to raise_error(HTTPError, "500 Internal Server Error")
+      end
+    end
+  end
+
+  context "when the server requires basic auth" do
+    before do
+      Jobly.api_url = 'http://localhost:3000/secure'
+    end
+
+    after do
+      Jobly.auth = nil
+      Jobly.api_url = 'http://localhost:3000/do'
+    end
+
+    context "when the client credentials are valid" do
+      before { Jobly.auth = 'bill:dollar' }
+
+      it "works" do
+        expect{ subject.run %w[send Greet] }.to output_fixture('cli/send/greet')
+      end
+    end
+    
+    context "when the client credentials are invalid" do
+      before { Jobly.auth = 'perry:cent' }
+
+      it "blocks" do
+        expect{ subject.run %w[send Greet] }.to raise_error(HTTPError, "401 Unauthorized")
       end
     end
   end
