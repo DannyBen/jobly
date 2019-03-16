@@ -9,6 +9,9 @@ services:
 notifications:
   email: false
 
+before_script:
+- run mockserver --daemon
+
 before_install:
 - gem install bundler
 

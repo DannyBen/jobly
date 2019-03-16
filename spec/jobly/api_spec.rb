@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Server do
+describe API do
   describe "GET /" do
     it "works" do
       get '/'
       expect(last_response).to be_ok
-      expect(last_response.body).to match_fixture('server/root').diff 3
+      expect(last_response.body).to match_fixture('api/root').diff 3
     end
   end
 
@@ -14,7 +14,7 @@ describe Server do
       it "returns 404 and a json body" do
         get '/NoJob'
         expect(last_response.status).to eq 404
-        expect(last_response.body).to match_fixture 'server/nojob'
+        expect(last_response.body).to match_fixture 'api/nojob'
       end
     end
 
