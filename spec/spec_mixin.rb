@@ -9,7 +9,7 @@ module SpecMixin
       raise "Please start the mock server (something else is running on port 3000)" unless response['mockserver'] == 'online'
     else
       # :nocov:
-      raise HTTPError, "Please start the mock server (got #{response.code} #{response.reason})"
+      raise "Please start the mock server (got #{response.code} #{response.reason})"
       # :nocov:
     end
 

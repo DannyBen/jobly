@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-describe Commands::SendCmd do
-  require_mock_server!
-  
+describe Commands::SendCmd, :mockserver do
   subject { CLI.router }
   
   context "without arguments" do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+ 'spec_helper'
 
 describe Log do
   subject { described_class.new }
@@ -11,7 +11,7 @@ describe Log do
       end      
     end
 
-    context "with :stdout" do
+    context "with target = :stdout" do
       subject { described_class.new :stdout }
 
       it "returns an STDOUT Logger" do
@@ -20,16 +20,25 @@ describe Log do
       end      
     end
 
-    context "with a filename" do
+    context "with target = filename" do
       subject { described_class.new 'spec/tmp/log.log' }
 
       it "returns a file Logger" do
         expect(subject.instance_variable_get(:@logdev).dev.inspect)
           .to eq "#<File:spec/tmp/log.log>"
       end
+
+      context "with tag = something" do
+        subject { described_class.new 'spec/tmp/%s.log', "something" }
+
+        it "places the tag in the file path" do
+          expect(subject.instance_variable_get(:@logdev).dev.inspect)
+            .to eq "#<File:spec/tmp/something.log>"
+        end
+      end
     end
 
-    context "with a syslog connection string" do
+    context "with target = syslog connection string" do
       subject { described_class.new 'syslog://host:prog@1.2.3.4:123' }
 
       it "returns a syslog Logger" do
@@ -43,8 +52,19 @@ describe Log do
         expect(logdev.instance_variable_get :@remote_hostname).to eq "1.2.3.4"
         expect(logdev.instance_variable_get :@remote_port).to eq 123
         expect(packet.hostname).to eq "host"
-        expect(packet.tag).to eq "prog"        
-      end      
+        expect(packet.tag).to eq "prog"
+      end
+
+      context "with tag = something" do
+        subject { described_class.new 'syslog://host:%s@1.2.3.4:123', "something" }
+
+        it "places the tag in the syslog path" do
+          logdev = subject.instance_variable_get(:@logdev).dev
+          packet = logdev.instance_variable_get :@packet
+          expect(packet.tag).to eq "something"
+        end
+      end
+
     end
   end
 end

@@ -6,6 +6,7 @@ module Jobly
     include JobExtensions::Actions
     include JobExtensions::Solo
     using KeywordArgs
+    using ToSlug
 
     sidekiq_options retry: 5, backtrace: 5
     attr_reader :params
@@ -41,6 +42,18 @@ module Jobly
     # Inheriting classes must implement this method only.
     def execute(params={})
       raise NotImplementedError
+    end
+
+    def logger
+      @logger ||= logger!
+    end
+
+    def logger!
+      if !Jobly.log or !Jobly.log.include? "%s"
+        Sidekiq.logger
+      else
+        Log.new Jobly.log, self.class.name.to_slug
+      end
     end
 
   private

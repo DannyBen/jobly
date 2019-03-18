@@ -11,7 +11,7 @@ module Jobly
 
     configure :development, :production do
       set :server, :puma
-      set :logger, Jobly.logger if Jobly.logger
+      set :logger, Log.new(Jobly.log, :sinatra) if Jobly.log
     end
 
     configure :development do

@@ -3,10 +3,12 @@ require 'uri'
 
 module Jobly
   module Log
-    def self.new(target = nil)
+    def self.new(target = nil, tag = nil)
       if !target or target.to_sym == :stdout or target == STDOUT
         return Logger.new STDOUT
       end
+
+      target %= tag if tag and target.include? "%s"
 
       unless target.start_with? 'syslog://'
         return Logger.new target
