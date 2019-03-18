@@ -37,4 +37,24 @@ describe Job do
       expect{ subject.execute }.to raise_error NotImplementedError
     end
   end
+
+  describe '#logger' do
+    context "when Jobly.log is empty" do
+      it "returns a default Sidekiq logger" do
+        expect(Sidekiq).to receive(:logger)
+        subject.logger
+      end
+    end
+
+    context "when Jobly.log is a simple string" do
+      before { Jobly.log = "logs/%s.log" }
+      after  { Jobly.log = nil }
+
+      it "returns a tagged Log with the class name" do
+        expect(Log).to receive(:new).with("logs/%s.log", "jobly-job")
+        subject.logger
+      end
+    end
+
+  end
 end

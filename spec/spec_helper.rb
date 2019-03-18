@@ -22,6 +22,10 @@ RSpec.configure do |c|
 
   c.fixtures_path = 'spec/approvals'
 
+  c.before(:all, mockserver: true) do
+    require_mock_server!
+  end
+
   def app; described_class; end
 end
 

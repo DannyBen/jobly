@@ -47,7 +47,7 @@ module Jobly
 
   def self.logger
     return nil unless log
-    @logger ||= Log.new log
+    @logger ||= Log.new log, :jobly
   end
 
   def self.log=(target)
