@@ -10,10 +10,16 @@ module Jobly
 
       target %= tag if tag and target.include? "%s"
 
-      unless target.start_with? 'syslog://'
-        return Logger.new target
+      if target.start_with? 'syslog://'
+        remote_syslog_logger target
+      else
+        Logger.new target
       end
+    end
 
+  private
+
+    def self.remote_syslog_logger(target)
       uri = URI target
       RemoteSyslogLogger.new (uri.host || 'localhost'), (uri.port || 514), 
         local_hostname: uri.user, program: uri.password
