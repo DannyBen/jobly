@@ -1,4 +1,5 @@
 require 'jobly'
+require 'jobly/version'
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/custom_logger'
@@ -24,9 +25,9 @@ module Jobly
 
     get '/' do
       {
-        version: VERSION,
+        version: Jobly::VERSION,
         message: %Q["I'm gonna live till I die" - Frank Sinatra]
-      }.to_json
+      }.to_json + "\n"
     end
 
     get '/*' do
@@ -73,7 +74,7 @@ module Jobly
       }
 
       logger.debug "[jobly server] Job received (#{job})"
-      response.to_json
+      response.to_json + "\n"
     end
   end
 end
