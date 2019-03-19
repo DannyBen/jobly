@@ -1,12 +1,28 @@
 Start the server
 
 Usage:
-  jobly server [--port NUMBER]
+  jobly server [--port NUMBER --bind IP --daemonize]
+  jobly server stop
   jobly server (-h|--help)
 
+Commands:
+  stop
+    Stop a previously started daemonized server
+
 Options:
+  -b, --bind IP
+    Set the listen address [default: 0.0.0.0]
+
   -p, --port NUMBER
     Set the port number [default: 3000]
 
+  -d, --daemonize
+    Run in the background
+
   -h --help
     Show this help
+
+Examples:
+  jobly server -d
+  jobly server --port 4567 --daemonize
+  jobly server stop
