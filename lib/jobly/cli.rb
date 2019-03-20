@@ -11,6 +11,7 @@ module Jobly
         header: "Jobly",
         footer: "Run !txtpur!jobly COMMAND --help!txtrst! for more information"
 
+      router.route 'init',      to: Commands::InitCmd
       router.route 'server',    to: Commands::ServerCmd
       router.route 'worker',    to: Commands::WorkerCmd
       router.route 'send',      to: Commands::SendCmd

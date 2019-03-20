@@ -1,0 +1,20 @@
+Create an initial jobs workspace
+
+Usage:
+  jobly init NAME [--minimal]
+  jobly init (-h|--help)
+
+Options:
+  -m --minimal
+    Create a minimal workspace
+
+  -h --help
+    Show this help
+
+Parameters:
+  NAME
+    The name of the folder to create
+
+Examples:
+  jobly init test
+  jobly init myjobs --minimal

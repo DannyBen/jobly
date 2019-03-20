@@ -5,14 +5,14 @@ Usage:
   jobly worker (-h|--help)
 
 Options:
-  -c, --concurrency COUNT
+  -c --concurrency COUNT
     Number of parallel jobs [default: 4]
 
-  -C, --config PATH
+  -C --config PATH
     Specify a path to a YAML config file. The provided path should be relative
     to the global config_path directory and without the yml extension
 
-  -q, --queue NAME[,WEIGHT]
+  -q --queue NAME[,WEIGHT]
     Specify one or more queues that this worker should handle
 
   -h --help

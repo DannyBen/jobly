@@ -1,0 +1,3 @@
+Created minimal workspace in spec/tmp/scaffold:
+- spec/tmp/scaffold/Gemfile
+- spec/tmp/scaffold/jobs/ping.rb

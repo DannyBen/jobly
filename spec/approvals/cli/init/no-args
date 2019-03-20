@@ -1,0 +1,3 @@
+Usage:
+  jobly init NAME [--minimal]
+  jobly init (-h|--help)

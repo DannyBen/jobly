@@ -5,7 +5,7 @@ Usage:
   jobly run (-h|--help)
 
 Options:
-  -l, --later
+  -l --later
     Schedule the job to be executed later by a worker instead of running it
     immediately
 

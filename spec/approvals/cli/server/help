@@ -5,7 +5,7 @@ Usage:
   jobly server (-h|--help)
 
 Options:
-  -p, --port NUMBER
+  -p --port NUMBER
     Set the port number [default: 3000]
 
   -h --help
