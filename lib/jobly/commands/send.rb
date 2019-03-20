@@ -26,7 +26,7 @@ module Jobly
         raise HTTPError, "#{response.code} #{response.reason}" unless response.status.ok?
 
         say "!txtgrn!#{response.code} #{response.reason}"
-        lp response.parse
+        puts response.parse.to_yaml
       end
 
     private
