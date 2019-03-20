@@ -1,0 +1,12 @@
+# Configuration can be done by environment variables or by a configuraiton 
+# file. If you are using `direnv`, you can copy this file to `.envrc` in 
+# order to autoload these values.
+export JOBLY_ENVIRONMENT=development
+export JOBLY_API_URL=http://localhost:3000/do
+export JOBLY_APP_PATH=app
+export JOBLY_CONFIG_PATH=config
+export JOBLY_REDIS_URL=redis://localhost:6379/0
+export JOBLY_STATUS_EXPIRATION=30
+export JOBLY_JOBS_NAMESPACE=Jobs
+export JOBLY_LOG=Jobs
+export JOBLY_AUTH=admin:secret

@@ -3,7 +3,7 @@ require 'fileutils'
 module Jobly
   module Commands
     class InitCmd < Base
-      summary "Create an initial Jobs workspace"
+      summary "Create an initial jobs workspace"
       usage "jobly init NAME [--minimal]"
       usage "jobly init (-h|--help)"
       param "NAME", "The name of the folder to create"
@@ -13,18 +13,19 @@ module Jobly
 
       def run
         minimal = args['--minimal']
-        template = minimal ? "minimal" : "full"
-        
-        source = File.expand_path "../templates/#{template}", __dir__
         target = args['NAME']
+        
+        raise ArgumentError, "#{target} already exists" if File.exist? target
 
-        FileUtils.mkdir_p target
+        template = minimal ? "minimal" : "full"
+        source = File.expand_path "../templates/#{template}", __dir__
 
-        Dir.chdir target do
-          FileUtils.copy_entry source, target
+        FileUtils.copy_entry source, target
+
+        say "Created #{template} workspace in #{target}:"
+        Dir["#{target}/**/{*,.*}"].each do |file|
+          say "- #{file}"
         end
-
-        say "Created #{template} workspace in #{target}"
       end
     end
   end

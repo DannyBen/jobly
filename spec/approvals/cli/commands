@@ -1,6 +1,7 @@
 Jobly
 
 Commands:
+  [1;32minit    [0mCreate an initial jobs workspace
   [1;32mserver  [0mStart the server
   [1;32mworker  [0mStart a job worker
   [1;32msend    [0mSend a job to the API
