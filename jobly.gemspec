@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = "Execute background jobs and build tasks on this sidekiq-based job server"
   s.authors     = ["Danny Ben Shitrit"]
   s.email       = 'db@dannyben.com'
-  s.files       = Dir['README.md', 'lib/**/*.*']
+  s.files       = Dir['README.md', 'lib/**/*']
   s.executables = ['jobly']
   s.homepage    = 'https://github.com/dannyben/jobly'
   s.license     = 'MIT'
