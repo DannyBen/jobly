@@ -46,8 +46,10 @@ sidekiq backgronud jobs system. It includes the following components:
 Documentation
 --------------------------------------------------
 
-Visit the [Jobly Documentation][1].
+- Visit the [Jobly documentation][1].
+- Visit the [interactive demo on Katacoda][3].
 
 
 [1]: https://jobly.dannyb.co
 [2]: https://github.com/dannyben/docker-jobly
+[3]: https://www.katacoda.com/dannyb/scenarios/jobly
