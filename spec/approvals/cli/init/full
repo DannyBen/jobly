@@ -5,3 +5,4 @@ Created full workspace in spec/tmp/scaffold:
 - spec/tmp/scaffold/app/job.rb
 - spec/tmp/scaffold/config/jobly.rb
 - spec/tmp/scaffold/jobs/hello.rb
+- spec/tmp/scaffold/jobs/ping.rb

@@ -5,8 +5,8 @@ Usage:
   jobly init (-h|--help)
 
 Options:
-  -m, --minimal
-    Create a simpler setup with less files
+  -m --minimal
+    Create a minimal workspace
 
   -h --help
     Show this help

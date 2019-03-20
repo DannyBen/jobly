@@ -7,27 +7,35 @@ module Jobly
       usage "jobly init NAME [--minimal]"
       usage "jobly init (-h|--help)"
       param "NAME", "The name of the folder to create"
-      option "-m, --minimal", "Create a simpler setup with less files"
+      option "-m --minimal", "Create a minimal workspace"
       example "jobly init test"
       example "jobly init myjobs --minimal"
 
       def run
-        minimal = args['--minimal']
-        target = args['NAME']
-        
-        raise ArgumentError, "#{target} already exists" if File.exist? target
+        raise ArgumentError, "#{target_dir} already exists" if File.exist? target_dir
 
-        template = minimal ? "minimal" : "full"
-        source = File.expand_path "../templates/#{template}", __dir__
+        FileUtils.copy_entry source_dir, target_dir
 
-        FileUtils.copy_entry source, target
+        say "Created #{template} workspace in #{target_dir}:"
+        files.each { |file| say "- #{file}" }
+      end
 
-        say "Created #{template} workspace in #{target}:"
+    private
 
-        files = Dir["#{target}/**/{*,.*}"].sort.reject { |f| File.directory? f }
-        files.each do |file|
-          say "- #{file}"
-        end
+      def template
+        args['--minimal'] ? 'minimal' : 'full'
+      end
+
+      def target_dir
+        args['NAME']
+      end
+
+      def source_dir
+        File.expand_path "../templates/#{template}", __dir__
+      end
+
+      def files
+        Dir["#{target_dir}/**/{*,.*}"].sort.reject { |f| File.directory? f }
       end
     end
   end

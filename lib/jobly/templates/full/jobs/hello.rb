@@ -8,7 +8,7 @@ class Hello < Job
     at 1, "Preparing to say Hi"
     sleep rand 3.0..8.0
 
-    logger.info "Hi"
+    logger.info "Hi #{name}!"
 
     at 2, "Done"
   end

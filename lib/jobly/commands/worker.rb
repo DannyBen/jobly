@@ -4,9 +4,9 @@ module Jobly
       summary "Start a job worker"
       usage "jobly worker [-c COUNT -C PATH (-q NAME)...]"
       usage "jobly worker (-h|--help)"
-      option "-c, --concurrency COUNT", "Number of parallel jobs [default: 4]"
-      option "-C, --config PATH", "Specify a path to a YAML config file. The provided path should be relative to the global config_path directory and without the yml extension"
-      option "-q, --queue NAME[,WEIGHT]", "Specify one or more queues that this worker should handle"
+      option "-c --concurrency COUNT", "Number of parallel jobs [default: 4]"
+      option "-C --config PATH", "Specify a path to a YAML config file. The provided path should be relative to the global config_path directory and without the yml extension"
+      option "-q --queue NAME[,WEIGHT]", "Specify one or more queues that this worker should handle"
 
       example "jobly worker --concurrency 10"
       example "jobly worker -q critical -q default -q low"

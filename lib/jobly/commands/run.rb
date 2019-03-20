@@ -7,7 +7,7 @@ module Jobly
       summary "Run a job locally"
       usage "jobly run [--later] JOB [PARAMS...]"
       usage "jobly run (-h|--help)"
-      option "-l, --later", "Schedule the job to be executed later by a worker instead of running it immediately"
+      option "-l --later", "Schedule the job to be executed later by a worker instead of running it immediately"
       param "JOB", "Job name"
       param "PARAMS", "Parameters to pass to the job as key:value"
       example "jobly run Greet name:Bob"
