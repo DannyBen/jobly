@@ -1,6 +1,6 @@
 require 'mister_bin'
 require 'colsole'
-require 'lp'
+require 'yaml'
 
 module Jobly
   module Commands
