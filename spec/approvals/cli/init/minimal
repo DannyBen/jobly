@@ -1,0 +1,4 @@
+Created minimal workspace in spec/tmp/scaffold:
+- spec/tmp/scaffold/Gemfile
+- spec/tmp/scaffold/Procfile
+- spec/tmp/scaffold/jobs/hello.rb

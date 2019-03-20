@@ -23,7 +23,9 @@ module Jobly
         FileUtils.copy_entry source, target
 
         say "Created #{template} workspace in #{target}:"
-        Dir["#{target}/**/{*,.*}"].each do |file|
+
+        files = Dir["#{target}/**/{*,.*}"].sort.reject { |f| File.directory? f }
+        files.each do |file|
           say "- #{file}"
         end
       end

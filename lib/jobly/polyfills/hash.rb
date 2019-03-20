@@ -1,3 +1,5 @@
+# :nocov:
+
 # Required for Ruby < 2.4
 if !{}.respond_to? :transform_values
   class Hash
