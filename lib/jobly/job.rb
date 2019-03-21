@@ -2,9 +2,8 @@ module Jobly
   class Job
     include Sidekiq::Worker
     include Sidekiq::Status::Worker
-    include JobExtensions::OptionAccessors
-    include JobExtensions::Actions
-    include JobExtensions::Solo
+    include JobExtensions::All
+
     using KeywordArgs
     using ToSlug
 
