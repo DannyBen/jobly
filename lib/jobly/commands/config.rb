@@ -10,6 +10,7 @@ module Jobly
       def run
         line "custom config file", short_config_path, !Jobly.custom_config?
         Jobly.options.each do |key, value|
+          next unless value
           if key.to_s.end_with? '_path'
             line key, value, !Dir.exist?(value)
           else
@@ -21,7 +22,7 @@ module Jobly
     private
 
       def short_config_path
-        Jobly.config_file.sub "#{Dir.pwd}", '.'
+        Jobly.config_file.sub "#{Dir.pwd}/", ''
       end
 
       def line(key, value, attention=false)
