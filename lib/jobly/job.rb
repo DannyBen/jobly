@@ -5,6 +5,8 @@ module Jobly
     include JobExtensions::OptionAccessors
     include JobExtensions::Actions
     include JobExtensions::Solo
+    include JobExtensions::Shell
+
     using KeywordArgs
     using ToSlug
 
