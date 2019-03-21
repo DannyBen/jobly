@@ -6,8 +6,4 @@
 [0m         config_path  [0;32mspec/fixtures/config
 [0m           redis_url  [0;32mredis://localhost:6379/0
 [0m   status_expiration  [0;32m30
-[0m      jobs_namespace  [0;32m
-[0m                 log  [0;32m
-[0m                auth  [0;32m
-[0m              mounts  [0;32m
 [0m
