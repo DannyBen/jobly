@@ -10,3 +10,6 @@ export JOBLY_STATUS_EXPIRATION=30
 export JOBLY_JOBS_NAMESPACE=Jobs
 export JOBLY_LOG=Jobs
 export JOBLY_AUTH=admin:secret
+export JOBLY_SLACK_WEBHOOK=https://hooks.slack.com/services/...
+export JOBLY_SLACK_CHANNEL=#debug
+export JOBLY_SLACK_USER=Botly
