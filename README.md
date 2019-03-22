@@ -40,7 +40,8 @@ sidekiq backgronud jobs system. It includes the following components:
   and for running jobs.
 - **Web API** - for executing jobs.
 - **Web Dashboard** - including job progress and status.
-
+- **Remote Syslog Support** - send output to Papertrail or remote syslog.
+- **Slack Notifications** - report job progress to Slack.
 
 
 Documentation
