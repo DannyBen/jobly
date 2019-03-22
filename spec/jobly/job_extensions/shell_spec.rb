@@ -9,11 +9,4 @@ describe JobExtensions::Shell do
     end
   end
 
-  describe '#run' do
-    it "calls TTY::Command#run" do
-      expect(subject.shell).to receive(:run).with "whoami"
-      subject.run "whoami"      
-    end
-  end
-
 end

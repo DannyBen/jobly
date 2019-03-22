@@ -30,4 +30,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "sinatra", '~> 2.0'
   s.add_runtime_dependency "sinatra-contrib", '~> 2.0'
   s.add_runtime_dependency "tty-command", '~> 0.8'
+  s.add_runtime_dependency "slack-notifier", '~> 2.3'
 end

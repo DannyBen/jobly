@@ -5,6 +5,7 @@ module Jobly
     include JobExtensions::OptionAccessors
     include JobExtensions::Actions
     include JobExtensions::Solo
+    include JobExtensions::Slack
     include JobExtensions::Shell
 
     using KeywordArgs

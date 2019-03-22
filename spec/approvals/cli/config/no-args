@@ -6,4 +6,6 @@
 [0m         config_path  [0;32mspec/fixtures/config
 [0m           redis_url  [0;32mredis://localhost:6379/0
 [0m   status_expiration  [0;32m30
+[0m       slack_channel  [0;32m#general
+[0m          slack_user  [0;32mJobly
 [0m
