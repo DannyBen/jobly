@@ -13,9 +13,15 @@ Gem::Specification.new do |s|
   s.email       = 'db@dannyben.com'
   s.files       = Dir['README.md', 'lib/**/*']
   s.executables = ['jobly']
-  s.homepage    = 'https://github.com/dannyben/jobly'
+  s.homepage    = 'https://jobly.dannyb.co/'
+  s.metadata = {
+    "bug_tracker_uri"   => "https://github.com/dannyben/jobly/issues",
+    "changelog_uri"     => "https://github.com/DannyBen/jobly/blob/master/CHANGELOG.md",
+    "documentation_uri" => "https://jobly.dannyb.co/",
+    "source_code_uri"   => "https://github.com/dannyben/jobly",
+  }
   s.license     = 'MIT'
-  s.required_ruby_version = ">= 2.3.0"
+  s.required_ruby_version = ">= 2.3.0"  
 
   s.add_runtime_dependency 'mister_bin', '~> 0.6'
   s.add_runtime_dependency 'colsole', '~> 0.5'
