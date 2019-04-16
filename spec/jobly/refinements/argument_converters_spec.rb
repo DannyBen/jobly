@@ -10,6 +10,14 @@ describe ArgumentConverters do
       it "converts to a hash" do
         expect(subject.to_params).to eq({:count=>"2", :hello=>"world"})
       end
+
+      context "when the value also includes a colon" do
+        subject { ["message:everybody say: jump!", "time:18:30"] }
+
+        it "still converts to a hash" do
+          expect(subject.to_params).to eq({:time=>"18:30", :message=>"everybody say: jump!"})
+        end
+      end
     end
   end
 end
