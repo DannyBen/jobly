@@ -52,7 +52,7 @@ module Jobly
     end
 
     def logger!
-      if !Jobly.log or !Jobly.log.include? "%s"
+      if !Jobly.log
         Sidekiq.logger
       else
         Log.new Jobly.log, self.class.name.to_slug

@@ -47,6 +47,16 @@ describe Job do
     end
 
     context "when Jobly.log is a simple string" do
+      before { Jobly.log = "logs/mylog.log" }
+      after  { Jobly.log = nil }
+
+      it "returns a Log instance" do
+        expect(Log).to receive(:new).with("logs/mylog.log", "jobly-job")
+        subject.logger
+      end
+    end
+
+    context "when Jobly.log is a string with replacement marker" do
       before { Jobly.log = "logs/%s.log" }
       after  { Jobly.log = nil }
 
@@ -55,6 +65,7 @@ describe Job do
         subject.logger
       end
     end
+
 
   end
 end
