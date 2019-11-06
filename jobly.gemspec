@@ -27,11 +27,11 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'colsole', '~> 0.5'
 
   s.add_runtime_dependency "http", '~> 4.0'
-  s.add_runtime_dependency "puma", '~> 3.12'
+  s.add_runtime_dependency "puma", '~> 4.2'
   s.add_runtime_dependency "rack", '~> 2.0'
   s.add_runtime_dependency "remote_syslog_logger", '~> 1.0'
   s.add_runtime_dependency "requires", '~> 0.1'
-  s.add_runtime_dependency "sidekiq", '~> 5.2'
+  s.add_runtime_dependency "sidekiq", '~> 6.0'
   s.add_runtime_dependency "sidekiq-status", '~> 1.1'
   s.add_runtime_dependency "sinatra", '~> 2.0'
   s.add_runtime_dependency "sinatra-contrib", '~> 2.0'
