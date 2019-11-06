@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
     "source_code_uri"   => "https://github.com/dannyben/jobly",
   }
   s.license     = 'MIT'
-  s.required_ruby_version = ">= 2.3.0"  
+  s.required_ruby_version = ">= 2.5.0"
 
   s.add_runtime_dependency 'mister_bin', '~> 0.6'
   s.add_runtime_dependency 'colsole', '~> 0.5'
