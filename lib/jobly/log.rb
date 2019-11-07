@@ -8,6 +8,7 @@ module Jobly
         return Logger.new STDOUT
       end
 
+      target = target.to_s
       target %= tag if tag and target.include? "%s"
 
       if target.start_with? 'syslog://'
