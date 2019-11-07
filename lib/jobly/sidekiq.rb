@@ -20,9 +20,7 @@ module Jobly
         # :nocov:
       end
 
-      if Jobly.log
-        Sidekiq.logger = Log.new Jobly.log, :sidekiq
-      end
+      Sidekiq.logger = Jobly.logger if Jobly.log
     end
   end
 end

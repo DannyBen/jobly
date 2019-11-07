@@ -47,21 +47,21 @@ describe Job do
     end
 
     context "when Jobly.log is a simple string" do
-      before { Jobly.log = "logs/mylog.log" }
+      before { Jobly.log = "log/mylog.log" }
       after  { Jobly.log = nil }
 
       it "returns a Log instance" do
-        expect(Log).to receive(:new).with("logs/mylog.log", "jobly-job")
+        expect(Log).to receive(:new).with("log/mylog.log", "jobly-job")
         subject.logger
       end
     end
 
     context "when Jobly.log is a string with replacement marker" do
-      before { Jobly.log = "logs/%s.log" }
+      before { Jobly.log = "log/%s.log" }
       after  { Jobly.log = nil }
 
       it "returns a tagged Log with the class name" do
-        expect(Log).to receive(:new).with("logs/%s.log", "jobly-job")
+        expect(Log).to receive(:new).with("log/%s.log", "jobly-job")
         subject.logger
       end
     end

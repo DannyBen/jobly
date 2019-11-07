@@ -73,20 +73,6 @@ describe Jobly do
     end
   end
 
-  describe '::logger=' do
-    after { described_class.log = nil }
-
-    it "set a logger" do
-      described_class.logger = Logger.new STDOUT
-      expect(described_class.logger).to be_a Logger
-    end
-
-    it "sets Jobly.log to :custom" do
-      described_class.logger = Logger.new STDOUT
-      expect(described_class.log).to eq :custom
-    end
-  end
-
   describe '::configure' do
     it "yields self" do
       yielded_instance = nil

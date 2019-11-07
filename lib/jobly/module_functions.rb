@@ -49,18 +49,18 @@ module Jobly
   end
 
   def self.logger
-    return nil unless log
-    @logger ||= Log.new log, :jobly
+    @logger
   end
 
   def self.log=(target)
     options[:log] = target
-    @logger = nil
-  end
-
-  def self.logger=(target)
-    options[:log] = :custom
-    @logger = target
+    @logger = if target.is_a? Logger
+      target
+    elsif target
+      Log.new target, :jobly
+    else
+      nil
+    end
   end
 
   def self.full_app_path
