@@ -12,7 +12,7 @@ describe SidekiqBoot do
       described_class.configure
     end
 
-    context "when logging is enabled", :focus do
+    context "when logging is enabled" do
       before { Jobly.log = 'spec/tmp/log.log' }
       after  { Jobly.log = nil }
       
