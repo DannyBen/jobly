@@ -66,6 +66,16 @@ describe Job do
       end
     end
 
+    context "when Jobly.log is a Logger" do
+      let(:logger) { Logger.new "spec/tmp/custom_logger.log" }
+
+      before { Jobly.log = logger }
+      after  { Jobly.log = nil }
+
+      it "returns the custom logger" do
+        expect(subject.logger).to eq logger
+      end
+    end
 
   end
 end
