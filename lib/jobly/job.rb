@@ -2,6 +2,7 @@ module Jobly
   class Job
     include Sidekiq::Worker
     include Sidekiq::Status::Worker
+    include Jobly::Logging  # must come after Sidekiq::Worker
     include JobExtensions::OptionAccessors
     include JobExtensions::Actions
     include JobExtensions::Solo
@@ -45,20 +46,6 @@ module Jobly
     # Inheriting classes must implement this method only.
     def execute(params={})
       raise NotImplementedError
-    end
-
-    def logger
-      @logger ||= logger!
-    end
-
-    def logger!
-      if !Jobly.log
-        Sidekiq.logger
-      elsif Jobly.log.is_a? Logger
-        Jobly.log
-      else
-        Log.new Jobly.log, self.class.name.to_slug
-      end
     end
 
   private
