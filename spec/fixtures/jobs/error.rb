@@ -1,3 +1,4 @@
+# :nocov: (covered by external bin_spec)
 class JobThatErrors < Jobly::Job
   def execute
     greet
