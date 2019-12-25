@@ -31,8 +31,8 @@ end
 
 help   "Generate changelog"
 action :changelog do
-  run 'github_changelog_generator --cache-file tmp/changlog-cache'  
-  run "git commit -am 'update changelog' && git push"
+  exec 'github_changelog_generator --user DannyBen --project jobly'
+  # run "git commit -am 'update changelog' && git push"
 end
 
 help   "Run test mock server"

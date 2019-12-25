@@ -1,6 +1,60 @@
-# Change Log
+# Changelog
+
+## [v0.4.2](https://github.com/DannyBen/jobly/tree/v0.4.2) (2019-12-25)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.4.1...v0.4.2)
+
+**Implemented enhancements:**
+
+- Add Settings mixin [\#58](https://github.com/DannyBen/jobly/issues/58)
+- Refactor helpers [\#57](https://github.com/DannyBen/jobly/issues/57)
+
+**Merged pull requests:**
+
+- Helpers improvements [\#59](https://github.com/DannyBen/jobly/pull/59) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.4.1](https://github.com/DannyBen/jobly/tree/v0.4.1) (2019-12-24)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.4.0...v0.4.1)
+
+**Merged pull requests:**
+
+- Provide logger as a loadable module [\#56](https://github.com/DannyBen/jobly/pull/56) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.4.0](https://github.com/DannyBen/jobly/tree/v0.4.0) (2019-11-07)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.3.0...v0.4.0)
+
+**Fixed bugs:**
+
+- Jobly.logger does not work properly [\#53](https://github.com/DannyBen/jobly/issues/53)
+- Version 0.3.0 breaks logging [\#51](https://github.com/DannyBen/jobly/issues/51)
+
+**Merged pull requests:**
+
+- Fix custom logger [\#54](https://github.com/DannyBen/jobly/pull/54) ([DannyBen](https://github.com/DannyBen))
+- Fix logging [\#52](https://github.com/DannyBen/jobly/pull/52) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.3.0](https://github.com/DannyBen/jobly/tree/v0.3.0) (2019-11-06)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.2.7...v0.3.0)
+
+**Merged pull requests:**
+
+- Update dependencies [\#50](https://github.com/DannyBen/jobly/pull/50) ([DannyBen](https://github.com/DannyBen))
+- Test with Ruby 2.6 [\#49](https://github.com/DannyBen/jobly/pull/49) ([DannyBen](https://github.com/DannyBen))
+- Fix logger assignment [\#48](https://github.com/DannyBen/jobly/pull/48) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.2.7](https://github.com/DannyBen/jobly/tree/v0.2.7) (2019-04-16)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.2.6...v0.2.7)
+
+**Merged pull requests:**
+
+- Fix cli arg:value-with-colon [\#47](https://github.com/DannyBen/jobly/pull/47) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.2.6](https://github.com/DannyBen/jobly/tree/v0.2.6) (2019-03-22)
+
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.2.5...v0.2.6)
 
 **Implemented enhancements:**
@@ -15,6 +69,7 @@
 - Do not display empty config values [\#44](https://github.com/DannyBen/jobly/pull/44) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.2.5](https://github.com/DannyBen/jobly/tree/v0.2.5) (2019-03-20)
+
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.2.4...v0.2.5)
 
 **Merged pull requests:**
@@ -22,6 +77,7 @@
 - Fix missing template files [\#41](https://github.com/DannyBen/jobly/pull/41) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.2.4](https://github.com/DannyBen/jobly/tree/v0.2.4) (2019-03-20)
+
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.2.3...v0.2.4)
 
 **Implemented enhancements:**
@@ -41,6 +97,7 @@
 - Fix version confusion and add newline after jsons [\#37](https://github.com/DannyBen/jobly/pull/37) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.2.3](https://github.com/DannyBen/jobly/tree/v0.2.3) (2019-03-18)
+
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.2.2...v0.2.3)
 
 **Merged pull requests:**
@@ -48,6 +105,7 @@
 - Add auto-tagging loggers [\#33](https://github.com/DannyBen/jobly/pull/33) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.2.2](https://github.com/DannyBen/jobly/tree/v0.2.2) (2019-03-16)
+
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.2.1...v0.2.2)
 
 **Implemented enhancements:**
@@ -62,6 +120,7 @@
 - Improve CLI error catching [\#28](https://github.com/DannyBen/jobly/pull/28) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.2.1](https://github.com/DannyBen/jobly/tree/v0.2.1) (2019-03-15)
+
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.2.0...v0.2.1)
 
 **Implemented enhancements:**
@@ -73,6 +132,7 @@
 - Add log wrapper for easy syslogging [\#27](https://github.com/DannyBen/jobly/pull/27) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.2.0](https://github.com/DannyBen/jobly/tree/v0.2.0) (2019-03-15)
+
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.1.3...v0.2.0)
 
 **Implemented enhancements:**
@@ -82,7 +142,6 @@
 
 **Closed issues:**
 
-- Complete Solo Jobs documentation [\#26](https://github.com/DannyBen/jobly/issues/26)
 - Create an official docker image [\#24](https://github.com/DannyBen/jobly/issues/24)
 - Allow escaping from `before` block [\#22](https://github.com/DannyBen/jobly/issues/22)
 - Complete documentation on GitBook [\#10](https://github.com/DannyBen/jobly/issues/10)
@@ -94,10 +153,12 @@
 - Allow more config through env vars [\#21](https://github.com/DannyBen/jobly/pull/21) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.1.3](https://github.com/DannyBen/jobly/tree/v0.1.3) (2019-03-12)
+
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.1.2...v0.1.3)
 
 **Closed issues:**
 
+- Complete Solo Jobs documentation [\#26](https://github.com/DannyBen/jobly/issues/26)
 - Add slack notification example [\#17](https://github.com/DannyBen/jobly/issues/17)
 - Complete test coverage [\#16](https://github.com/DannyBen/jobly/issues/16)
 - Update documentation for Actions [\#15](https://github.com/DannyBen/jobly/issues/15)
@@ -114,16 +175,21 @@
 - Add job in job example [\#2](https://github.com/DannyBen/jobly/pull/2) ([DannyBen](https://github.com/DannyBen))
 
 ## [v0.1.2](https://github.com/DannyBen/jobly/tree/v0.1.2) (2019-03-09)
+
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.1.1...v0.1.2)
+
+## [v0.1.1](https://github.com/DannyBen/jobly/tree/v0.1.1) (2019-03-09)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.1.0...v0.1.1)
 
 **Merged pull requests:**
 
 - Allow calling namespaced jobs with slashes [\#1](https://github.com/DannyBen/jobly/pull/1) ([DannyBen](https://github.com/DannyBen))
 
-## [v0.1.1](https://github.com/DannyBen/jobly/tree/v0.1.1) (2019-03-09)
-[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.1.0...v0.1.1)
-
 ## [v0.1.0](https://github.com/DannyBen/jobly/tree/v0.1.0) (2019-03-08)
 
+[Full Changelog](https://github.com/DannyBen/jobly/compare/e7daf315b0023aa2d966dae25e7d373d87cfc60c...v0.1.0)
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+
+
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*
