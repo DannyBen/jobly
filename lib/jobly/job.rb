@@ -2,12 +2,13 @@ module Jobly
   class Job
     include Sidekiq::Worker
     include Sidekiq::Status::Worker
-    include Jobly::Logging  # must come after Sidekiq::Worker
     include JobExtensions::OptionAccessors
     include JobExtensions::Actions
     include JobExtensions::Solo
-    include JobExtensions::Slack
-    include JobExtensions::Shell
+
+    # Helpers must come after Sidekiq::Worker since they both bring logger
+    # and our logger is the king of loggers
+    include Helpers
 
     using KeywordArgs
     using ToSlug

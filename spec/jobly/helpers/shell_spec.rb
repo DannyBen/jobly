@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe JobExtensions::Shell do
+describe Shell do
   subject { Greet.new }
 
   describe '#shell' do
