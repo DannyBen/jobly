@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.5.0"
 
   s.add_runtime_dependency "http", '~> 4.0'
-  s.add_runtime_dependency "pretty_trace", '~> 0.2', '> 0.2.3'
+  s.add_runtime_dependency "pretty_trace", '~> 0.2', '>= 0.2.3'
   s.add_runtime_dependency "puma", '~> 4.2'
   s.add_runtime_dependency "rack", '~> 2.0'
   s.add_runtime_dependency "remote_syslog_logger", '~> 1.0'
