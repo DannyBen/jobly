@@ -1,7 +1,6 @@
 require "runfile-tasks"
 require "byebug"
-require_relative 'lib/jobly'
-require_relative 'lib/jobly/version'
+require 'jobly'
 
 title   "Jobly Developer Toolbelt"
 summary "Runfile tasks for building the Jobly gem"
