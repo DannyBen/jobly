@@ -27,7 +27,7 @@ Installation
 
     $ gem install jobly
 
-Or with the official [Jobly docker image][2].
+Or with the official [Jobly docker image][docker].
 
 
 What's in the Box
@@ -47,10 +47,19 @@ sidekiq backgronud jobs system. It includes the following components:
 Documentation
 --------------------------------------------------
 
-- Visit the [Jobly documentation][1].
-- Visit the [interactive demo on Katacoda][3].
+- Visit the [Jobly documentation][docs].
+- Visit the [interactive demo on Katacoda][katacoda].
 
 
-[1]: https://jobly.dannyb.co
-[2]: https://github.com/dannyben/docker-jobly
-[3]: https://www.katacoda.com/dannyb/scenarios/jobly
+Contributing / Support
+--------------------------------------------------
+
+If you experience any issue, have a question or a suggestion, or if you wish
+to contribute, feel free to [open an issue][issues].
+
+---
+
+[docs]: https://jobly.dannyb.co
+[docker]: https://github.com/dannyben/docker-jobly
+[katacoda]: https://www.katacoda.com/dannyb/scenarios/jobly
+[issues]: https://github.com/DannyBen/jobly/issues

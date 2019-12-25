@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe JobExtensions::Slack do
+describe Slack do
   subject { SlackJob.new }
   let(:webhook) { "http://some.hook" }
   let(:opts) {{ channel: '#spec', username: 'RSpec' }}
