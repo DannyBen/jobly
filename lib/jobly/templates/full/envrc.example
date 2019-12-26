@@ -13,3 +13,4 @@ export JOBLY_AUTH=admin:secret
 export JOBLY_SLACK_WEBHOOK=https://hooks.slack.com/services/...
 export JOBLY_SLACK_CHANNEL=#debug
 export JOBLY_SLACK_USER=Botly
+export JOBLY_SHELL_DRY_RUN=1
