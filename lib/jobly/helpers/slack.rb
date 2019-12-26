@@ -28,8 +28,6 @@ module Jobly
       @slack ||= slack!
     end
 
-  private
-
     def slack!
       raise ArgumentError, "Slack webhook is not set" unless Jobly.slack_webhook
       opts = {
