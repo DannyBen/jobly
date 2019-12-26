@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Shell do
   subject { Greet.new }
 
-  describe '#shell', :focus do
+  describe '#shell' do
     it "returns a TTY::Command instance" do
       expect(subject.shell).to be_a TTY::Command
     end
