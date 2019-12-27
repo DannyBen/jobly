@@ -1,6 +1,5 @@
 Running [0;32mJobThatErrors
 [0m
-line [32m44  [0m in [36mjobly/[35mjob.rb[0m > [34mperform[0m
 line [32m4   [0m in [36mjobs/[35merror.rb[0m > [34mexecute[0m
 line [32m7   [0m in [36mjobs/[35merror.rb[0m > [34mgreet[0m
 

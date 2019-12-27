@@ -7,5 +7,6 @@ Commands:
   [1;32msend    [0mSend a job to the API
   [1;32mrun     [0mRun a job locally
   [1;32mconfig  [0mShow configuration options
+  [1;32minfo    [0mShow workspace info
 
 Run [0;35mjobly COMMAND --help[0m for more information

@@ -3,6 +3,7 @@ Created full workspace in spec/tmp/scaffold:
 - spec/tmp/scaffold/Procfile
 - spec/tmp/scaffold/app/job.rb
 - spec/tmp/scaffold/app/other_class.rb
+- spec/tmp/scaffold/config/info.md
 - spec/tmp/scaffold/config/jobly.rb
 - spec/tmp/scaffold/envrc.example
 - spec/tmp/scaffold/jobs/hello.rb
