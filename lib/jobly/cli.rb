@@ -17,6 +17,7 @@ module Jobly
       router.route 'send',      to: Commands::SendCmd
       router.route 'run',       to: Commands::RunCmd
       router.route 'config',    to: Commands::ConfigCmd
+      router.route 'info',      to: Commands::InfoCmd
 
       router
     end

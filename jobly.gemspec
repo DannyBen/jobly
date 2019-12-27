@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.5.0"
 
   s.add_runtime_dependency "http", '~> 4.0'
-  s.add_runtime_dependency "pretty_trace", '~> 0.2', '>= 0.2.3'
+  s.add_runtime_dependency "pretty_trace", '~> 0.2', '>= 0.2.4'
   s.add_runtime_dependency "puma", '~> 4.2'
   s.add_runtime_dependency "rack", '~> 2.0'
   s.add_runtime_dependency "remote_syslog_logger", '~> 1.0'
@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "slack-notifier", '~> 2.3'
   s.add_runtime_dependency "sting", '~> 0.3'
   s.add_runtime_dependency "tty-command", '~> 0.9'
+  s.add_runtime_dependency "tty-markdown", '~> 0.6'
   s.add_runtime_dependency 'colsole', '~> 0.6'
   s.add_runtime_dependency 'mister_bin', '~> 0.7'
 end

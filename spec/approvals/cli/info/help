@@ -1,0 +1,9 @@
+Show workspace info
+
+Usage:
+  jobly info
+  jobly info (-h|--help)
+
+Options:
+  -h --help
+    Show this help
