@@ -7,9 +7,13 @@ describe 'bin/jobly' do
 
   context "on exception" do
     it "errors gracefuly" do
+      output = nil
+
       Dir.chdir 'spec/fixtures' do
-        expect(`../../bin/jobly run JobThatErrors`).to match_fixture('cli/exception')
+        output = `../../bin/jobly run JobThatErrors`
       end
+
+      expect(output).to match_fixture('cli/exception')
     end
   end
 end
