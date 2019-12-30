@@ -5,6 +5,7 @@ describe Jobly do
     %i[
       environment api_url app_path full_app_path jobs_path full_jobs_path
       config_path full_config_path redis_url slack_channel slack_user
+      log_level root
     ]
   end
 
@@ -43,6 +44,22 @@ describe Jobly do
 
       expect(described_class.logger.instance_variable_get(:@logdev).dev.inspect)
         .to eq "#<File:spec/tmp/out.log>"
+    end
+
+    it "sets the default log level to info" do
+      described_class.log = 'spec/tmp/out.log'
+      expect(described_class.logger.level).to eq 1
+    end
+  end
+
+  describe '::log_level=' do
+    after { described_class.log = nil }
+
+    it "sets the log level for the logger" do
+      expect(described_class.log_level).to eq 'info'
+      described_class.log_level = 'fatal'
+      described_class.log = 'spec/tmp/out.log'
+      expect(described_class.logger.level).to eq 4
     end
   end
 

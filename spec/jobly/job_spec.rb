@@ -51,7 +51,7 @@ describe Job do
       after  { Jobly.log = nil }
 
       it "returns a Log instance" do
-        expect(Log).to receive(:new).with("spec/tmp/mylog.log", "jobly-job")
+        expect(Log).to receive(:new).with(%r{spec/tmp/mylog.log}, "jobly-job")
         subject.logger
       end
     end
@@ -61,7 +61,7 @@ describe Job do
       after  { Jobly.log = nil }
 
       it "returns a tagged Log with the class name" do
-        expect(Log).to receive(:new).with("spec/tmp/%s.log", "jobly-job")
+        expect(Log).to receive(:new).with(%r{spec/tmp/%s.log}, "jobly-job")
         subject.logger
       end
     end

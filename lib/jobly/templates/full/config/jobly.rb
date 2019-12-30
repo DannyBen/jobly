@@ -10,6 +10,7 @@ Jobly.configure do |config|
   # config.status_expiration = 30
   # config.jobs_namespace = 'Jobs'
   # config.log = 'log/%s.log'
+  # config.log_level = 'info'
   # config.slack_webhook = 'https://hooks.slack.com/services/...'
   # config.slack_channel = '#debug'
   # config.slack_user = 'Botly'
