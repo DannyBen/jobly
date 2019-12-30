@@ -14,7 +14,7 @@ module Jobly
       if target.start_with? 'syslog://'
         remote_syslog_logger target
       else
-        Logger.new target
+        Logger.new File.expand_path(target, Jobly.root)
       end
     end
 

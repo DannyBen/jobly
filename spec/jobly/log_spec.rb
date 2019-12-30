@@ -1,4 +1,4 @@
- 'spec_helper'
+require 'spec_helper'
 
 describe Log do
   subject { described_class.new }
@@ -23,9 +23,9 @@ describe Log do
     context "with target = filename" do
       subject { described_class.new 'spec/tmp/log.log' }
 
-      it "returns a file Logger" do
+      it "returns a file Logger with full path" do
         expect(subject.instance_variable_get(:@logdev).dev.inspect)
-          .to eq "#<File:spec/tmp/log.log>"
+          .to match %r{#<File:/(.*)spec/tmp/log.log>}
       end
 
       context "with tag = something" do
@@ -33,7 +33,7 @@ describe Log do
 
         it "places the tag in the file path" do
           expect(subject.instance_variable_get(:@logdev).dev.inspect)
-            .to eq "#<File:spec/tmp/something.log>"
+            .to match %r{#<File:/(.*)spec/tmp/something.log>}
         end
       end
     end
