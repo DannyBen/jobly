@@ -43,7 +43,7 @@ describe Jobly do
       described_class.log = 'spec/tmp/out.log'
 
       expect(described_class.logger.instance_variable_get(:@logdev).dev.inspect)
-        .to eq "#<File:spec/tmp/out.log>"
+        .to match %r{#<File:/(.*)spec/tmp/out.log>}
     end
 
     it "sets the default log level to info" do

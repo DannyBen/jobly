@@ -7,6 +7,7 @@ describe Commands::ConfigCmd do
     it "shows config options" do
       expect{ subject.run %w[config] }.to output_fixture('cli/config/no-args')
         .except(/custom config file  (.*)jobly.rb/)
+        .except(/root  (.*)jobly/)
     end
   end
 

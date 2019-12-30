@@ -1,5 +1,5 @@
   custom config file  ...jobly.rb
-[0m                root  [0;32m/vagrant/gems/jobly
+[0m                root  ...jobly
 [0m         environment  [0;32mdevelopment
 [0m             api_url  [0;32mhttp://localhost:3000/do
 [0m            app_path  [0;31mapp

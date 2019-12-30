@@ -81,10 +81,6 @@ module Jobly
       File.expand_path config_path, root
     end
 
-    def full_log_path
-      File.expand_path log, root
-    end
-
     def config_file
       File.expand_path 'jobly.rb', full_config_path
     end
