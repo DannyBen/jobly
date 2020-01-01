@@ -25,6 +25,7 @@ module Jobly
         log: ENV['JOBLY_LOG'],
         log_level: ENV['JOBLY_LOG_LEVEL'] || 'info',
         auth: ENV['JOBLY_AUTH'],
+        shell_dry_run: ENV['JOBLY_SHELL_DRY_RUN'],
         mounts: nil,
       }
     end

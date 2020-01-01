@@ -12,9 +12,9 @@ describe Shell do
       expect(subject.shell.dry_run?).to be false
     end
 
-    context "when JOBLY_SHELL_DRY_RUN is set" do
-      before { ENV['JOBLY_SHELL_DRY_RUN'] = '1' }
-      after  { ENV['JOBLY_SHELL_DRY_RUN'] = nil }
+    context "when Jobly.shell_dry_run is true" do
+      before { Jobly.shell_dry_run = true }
+      after  { Jobly.shell_dry_run = false }
 
       it "enables dry_run mode" do
         expect(subject.shell.dry_run?).to be true

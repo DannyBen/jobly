@@ -6,8 +6,10 @@ require 'bundler'
 Bundler.require :default, :development
 
 require 'jobly'
+Jobly.app_path = 'spec/fixtures/app'
 Jobly.jobs_path = 'spec/fixtures/jobs'
 Jobly.config_path = 'spec/fixtures/config'
+
 require 'jobly/boot'
 
 include Jobly
