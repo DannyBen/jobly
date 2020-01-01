@@ -1,6 +1,7 @@
 Created full workspace in spec/tmp/scaffold:
 - spec/tmp/scaffold/Gemfile
 - spec/tmp/scaffold/Procfile
+- spec/tmp/scaffold/app/boot.rb
 - spec/tmp/scaffold/app/job.rb
 - spec/tmp/scaffold/app/other_class.rb
 - spec/tmp/scaffold/config/info.md
