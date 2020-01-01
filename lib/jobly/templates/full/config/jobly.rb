@@ -13,6 +13,7 @@ Jobly.configure do |config|
   # config.log_level = 'info'
   # config.slack_webhook = 'https://hooks.slack.com/services/...'
   # config.slack_channel = '#debug'
-  # config.slack_user = 'Botly'
+  # config.slack_user = 'Jobly'
   # config.auth = 'admin:secret'
+  # config.shell_dry_run = false
 end

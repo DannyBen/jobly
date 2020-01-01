@@ -2,7 +2,7 @@
 [0m                root  ...jobly
 [0m         environment  [0;32mdevelopment
 [0m             api_url  [0;32mhttp://localhost:3000/do
-[0m            app_path  [0;31mapp
+[0m            app_path  [0;32mspec/fixtures/app
 [0m           jobs_path  [0;32mspec/fixtures/jobs
 [0m         config_path  [0;32mspec/fixtures/config
 [0m           redis_url  [0;32mredis://localhost:6379/0
