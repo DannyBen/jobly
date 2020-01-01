@@ -1,5 +1,50 @@
 # Changelog
 
+## [v0.4.6](https://github.com/DannyBen/jobly/tree/v0.4.6) (2020-01-01)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.4.5...v0.4.6)
+
+**Implemented enhancements:**
+
+- Improve app loading sequence [\#64](https://github.com/DannyBen/jobly/issues/64)
+- Expose JOBLY\_SHELL\_DRY\_RUN as a config value [\#63](https://github.com/DannyBen/jobly/issues/63)
+
+**Merged pull requests:**
+
+- Improve app boot [\#65](https://github.com/DannyBen/jobly/pull/65) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.4.5](https://github.com/DannyBen/jobly/tree/v0.4.5) (2019-12-30)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.4.4...v0.4.5)
+
+**Implemented enhancements:**
+
+- Job Index [\#43](https://github.com/DannyBen/jobly/issues/43)
+
+**Merged pull requests:**
+
+- Fix relative paths issues and add Jobly.log\_level [\#62](https://github.com/DannyBen/jobly/pull/62) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.4.4](https://github.com/DannyBen/jobly/tree/v0.4.4) (2019-12-27)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.4.3...v0.4.4)
+
+**Implemented enhancements:**
+
+- Can we support GitHub webhooks out of the box? [\#8](https://github.com/DannyBen/jobly/issues/8)
+
+**Merged pull requests:**
+
+- Add workspace info command [\#61](https://github.com/DannyBen/jobly/pull/61) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.4.3](https://github.com/DannyBen/jobly/tree/v0.4.3) (2019-12-26)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.4.2...v0.4.3)
+
+**Merged pull requests:**
+
+- Add JOBLY\_SHELL\_DRY\_RUN [\#60](https://github.com/DannyBen/jobly/pull/60) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.4.2](https://github.com/DannyBen/jobly/tree/v0.4.2) (2019-12-25)
 
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.4.1...v0.4.2)
@@ -142,6 +187,7 @@
 
 **Closed issues:**
 
+- Complete Solo Jobs documentation [\#26](https://github.com/DannyBen/jobly/issues/26)
 - Create an official docker image [\#24](https://github.com/DannyBen/jobly/issues/24)
 - Allow escaping from `before` block [\#22](https://github.com/DannyBen/jobly/issues/22)
 - Complete documentation on GitBook [\#10](https://github.com/DannyBen/jobly/issues/10)
@@ -158,7 +204,6 @@
 
 **Closed issues:**
 
-- Complete Solo Jobs documentation [\#26](https://github.com/DannyBen/jobly/issues/26)
 - Add slack notification example [\#17](https://github.com/DannyBen/jobly/issues/17)
 - Complete test coverage [\#16](https://github.com/DannyBen/jobly/issues/16)
 - Update documentation for Actions [\#15](https://github.com/DannyBen/jobly/issues/15)
