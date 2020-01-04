@@ -22,14 +22,14 @@ module Jobly
         if args['--later']
           say "Scheduling !txtgrn!#{job_class}"
           if params.empty?
-            job_class.perform_async
+            job_class.run_later
           else
-            job_class.perform_async params
+            job_class.run_later params
           end
         
         else
           say "Running !txtgrn!#{job_class}"
-          job_class.new.perform params
+          job_class.run params
         end
       end
 

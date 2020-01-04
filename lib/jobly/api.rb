@@ -62,9 +62,9 @@ module Jobly
 
       args = args.convert_to_typed
       if args.empty?
-        job_class.perform_async
+        job_class.run_later
       else
-        job_class.perform_async args
+        job_class.run_later args
       end
       
       response = {
