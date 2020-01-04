@@ -24,7 +24,7 @@ module Jobly
       # Allow calling a job with `JobName.execute` instead of 
       # `JobName.new.execute`, for consistency.
       def execute(*args)
-        new.execute *args
+        perform *args
       end
 
       # Allow calling a job with `JobName.perform` instead of 

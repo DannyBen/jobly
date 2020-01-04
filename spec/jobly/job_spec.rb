@@ -21,6 +21,14 @@ describe Job do
       expect_any_instance_of(described_class).to receive(:execute).with name: 'jill'
       described_class.execute name: 'jill'
     end
+
+    context "when the job defines actions" do
+      subject { ActionsJob }
+
+      it "executes the actions" do
+        expect{ subject.execute }.to output_fixture('job/execute-runs-actions')
+      end
+    end
   end
 
   describe '#perform' do
