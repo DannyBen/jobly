@@ -33,6 +33,8 @@ module Jobly
     # the hash argument which was converted to array on sidekiq's side, back
     # to a hash so we can forward to the job's `execute` method, which may 
     # implement keyword args.
+    # If the job was marked as isolated, we will run it in its own temporary
+    # directory.
     def perform(params = {})
       if isolated?
         in_isolation { perform! params }
@@ -41,6 +43,7 @@ module Jobly
       end
     end
 
+    # Run the job with its filters and actions.
     def perform!(params = {})
       @params = params
       run_to_completion if run_before_filter
