@@ -9,25 +9,17 @@ describe Job do
     expect(subject).to respond_to :expiration
   end
 
-  describe '::execute_async' do
+  describe '::run_later' do
     it "behaves as ::perform_async" do
-      # TODO: Can we test this better?
-      expect(described_class).to respond_to :perform_async
+      expect(described_class).to receive(:perform_async).with({hello: 'world'})
+      described_class.run_later hello: 'world'
     end
   end
 
-  describe '::execute' do
-    it "calls execute on a new instance" do
-      expect_any_instance_of(described_class).to receive(:execute).with name: 'jill'
-      described_class.execute name: 'jill'
-    end
-
-    context "when the job defines actions" do
-      subject { ActionsJob }
-
-      it "executes the actions" do
-        expect{ subject.execute }.to output_fixture('job/execute-runs-actions')
-      end
+  describe '::run' do
+    it "calls perform on a new instance" do
+      expect_any_instance_of(described_class).to receive(:perform).with name: 'jill'
+      described_class.run name: 'jill'
     end
   end
 
