@@ -1,0 +1,6 @@
+before
+execute 1/2
+execute 2/2
+on_success
+after
+after_party
