@@ -13,10 +13,19 @@ module Jobly
         attr_reader :solo_key
 
         def solo(expire: 1.hour, key: nil)
-          @solo_key = key if key
+          @solo_enabled = true
+          @solo_key = key
           before { solo_locked? ? skip_job : solo_lock(expire) }
           after  { solo_unlock }
         end
+
+        def solo?
+          !!@solo_enabled
+        end
+      end
+
+      def solo?
+        self.class.solo?
       end
 
       def solo_key
