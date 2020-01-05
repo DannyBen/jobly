@@ -6,10 +6,12 @@ module Jobly
       end
 
       module ClassMethods
-        attr_reader :isolate
-
         def isolated(enabled = true)
-          @isolate = enabled
+          @isolation_enabled = enabled
+        end
+
+        def isolated?
+          !!@isolation_enabled
         end
       end
 
@@ -20,7 +22,7 @@ module Jobly
       end
 
       def isolated?
-        self.class.isolate
+        self.class.isolated?
       end
     end
   end

@@ -1,0 +1,3 @@
+options: {"retry"=>5, "queue"=>"default", "backtrace"=>5}
+isolated: false
+solo: false

@@ -22,7 +22,12 @@ module Jobly
         def backtrace(count)
           options['backtrace'] = count
         end
-      end      
+      end
+
+      def options
+        # sidekiq_options_hash   # is this better?
+        self.class.options
+      end
 
     end
   end
