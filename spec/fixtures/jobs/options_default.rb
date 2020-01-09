@@ -1,10 +1,4 @@
-class OptionsJob < Jobly::Job
-  queue 'are-as-tea'
-  backtrace 11
-  retries 3
-  solo
-  isolated
-
+class OptionsDefaultJob < Jobly::Job
   def execute
     puts "options: #{options}"
     puts "isolated: #{isolated?}"

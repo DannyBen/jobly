@@ -1,2 +1,3 @@
-executed with these options:
-{"retry"=>3, "queue"=>"are-as-tea", "backtrace"=>11}
+options: {"retry"=>3, "queue"=>"are-as-tea", "backtrace"=>11}
+isolated: true
+solo: true
