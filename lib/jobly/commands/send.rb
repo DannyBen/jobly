@@ -21,7 +21,7 @@ module Jobly
         args = [url]
         args << { params: params } unless params.empty?
 
-        response = client.get *args
+        response = client.get(*args)
 
         raise HTTPError, "#{response.code} #{response.reason}" unless response.status.ok?
 

@@ -1,4 +1,5 @@
-require 'jobly'
+require 'jobly/module_functions'
+require 'jobly/api'
 require 'rack'
 
 module Jobly

@@ -57,7 +57,7 @@ module Jobly
           if action.is_a? Symbol
             send action
           else
-            instance_eval &action
+            instance_eval(&action)
           end
         end
       end

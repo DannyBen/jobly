@@ -1,4 +1,5 @@
-require 'jobly'
+require 'jobly/module_functions'
+require 'jobly/jobs'
 require 'jobly/version'
 require 'sinatra/base'
 require 'sinatra/reloader'
