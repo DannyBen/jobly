@@ -26,7 +26,10 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "http", '~> 4.0'
   s.add_runtime_dependency "pretty_trace", '~> 0.2', '>= 0.2.4'
   s.add_runtime_dependency "puma", '~> 4.2'
-  s.add_runtime_dependency "rack", '~> 2.0'
+  # Restrict Rack version due to deprecation warning in Sidekiq that needs
+  # to be addressed:
+  # https://github.com/mperham/sidekiq/issues/4423
+  s.add_runtime_dependency "rack", '~> 2.0', '< 2.1.0'
   s.add_runtime_dependency "remote_syslog_logger", '~> 1.0'
   s.add_runtime_dependency "requires", '~> 0.1'
   s.add_runtime_dependency "sidekiq", '~> 6.0'
