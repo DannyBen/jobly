@@ -12,6 +12,10 @@ describe Settings do
       expect(subject.settings.host).to eq "localhost"
     end
 
+    it "loads extended YAMLs" do
+      expect(subject.settings.parent_loaded).to be true
+    end
+
     context "when Jobly.environment is set" do
       before do
         @original_environment = Jobly.environment

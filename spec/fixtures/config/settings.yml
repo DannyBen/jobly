@@ -1,1 +1,2 @@
+extends: settings-parent
 host: localhost
