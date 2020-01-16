@@ -10,6 +10,7 @@ PrettyTrace.filter [
   %r[mister_bin],
   %r[bin/jobly],
   %r[bin/ruby],
+  %r[lib/ruby],
   %r[lib/jobly],
 ]
 
