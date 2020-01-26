@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
-require 'colsole'
 require 'pretty_trace/enable-trim'
-include Colsole
-
 require 'jobly'
 require 'jobly/boot'
 
