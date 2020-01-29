@@ -17,3 +17,5 @@ if !{}.respond_to? :transform_keys
     end
   end
 end
+
+# :nocov:

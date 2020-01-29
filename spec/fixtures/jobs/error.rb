@@ -8,3 +8,5 @@ class JobThatErrors < Jobly::Job
     puts "hello #{name}"
   end
 end
+
+# :nocov:
