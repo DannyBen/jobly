@@ -1,5 +1,5 @@
-200 OK
----
+[0;32m200 OK
+[0m---
 received:
   splat:
   - Greet

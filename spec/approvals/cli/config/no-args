@@ -1,12 +1,13 @@
   custom config file  ...jobly.rb
-                root  ...jobly
-         environment  development
-             api_url  http://localhost:3000/do
-            app_path  spec/fixtures/app
-           jobs_path  spec/fixtures/jobs
-         config_path  spec/fixtures/config
-           redis_url  redis://localhost:6379/0
-   status_expiration  30
-       slack_channel  #general
-          slack_user  Jobly
-           log_level  info
+[0m                root  ...jobly
+[0m         environment  [0;32mdevelopment
+[0m             api_url  [0;32mhttp://localhost:3000/do
+[0m            app_path  [0;32mspec/fixtures/app
+[0m           jobs_path  [0;32mspec/fixtures/jobs
+[0m         config_path  [0;32mspec/fixtures/config
+[0m           redis_url  [0;32mredis://localhost:6379/0
+[0m   status_expiration  [0;32m30
+[0m       slack_channel  [0;32m#general
+[0m          slack_user  [0;32mJobly
+[0m           log_level  [0;32minfo
+[0m

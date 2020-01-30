@@ -41,4 +41,4 @@ jobs:
       run: bundle exec run mockserver --daemon
 
     - name: Run tests
-      run: bundle exec rspec
+      run: script -e -c "bundle exec rspec"
