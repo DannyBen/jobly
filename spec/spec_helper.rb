@@ -19,7 +19,7 @@ include SpecMixin
 system 'mkdir spec/tmp' unless Dir.exist? 'spec/tmp'
 
 # Consistent Colsole output (for rspec_fixtures)
-ENV['TTY'] = 'on'
+ENV['TTY'] = 'off'
 
 RSpec.configure do |c|
   c.include SpecMixin
