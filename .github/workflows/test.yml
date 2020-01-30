@@ -7,6 +7,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env: 
+      CI: 1
+
     services:
       redis: { image: redis, ports: ["6379:6379"] }
 
