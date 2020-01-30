@@ -18,14 +18,12 @@ include SpecMixin
 
 system 'mkdir spec/tmp' unless Dir.exist? 'spec/tmp'
 
-# Consistent Colsole output (for rspec_fixtures)
-ENV['TTY'] = 'on'
-
 RSpec.configure do |c|
   c.include SpecMixin
   c.include Rack::Test::Methods
 
   c.fixtures_path = 'spec/approvals'
+  c.strip_ansi_escape = true
 
   c.before(:all, mockserver: true) do
     require_mock_server!
