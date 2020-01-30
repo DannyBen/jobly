@@ -1,2 +1,2 @@
-Running [0;32mNamespaced::Hello
-[0mHi Bobby, I am namspaced as Namespaced::Hello
+Running Namespaced::Hello
+Hi Bobby, I am namspaced as Namespaced::Hello

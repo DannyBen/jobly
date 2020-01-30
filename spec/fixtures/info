@@ -1,0 +1,15 @@
+Script started on 2020-01-30 20:15:22+0000
+Jobly
+
+Commands:
+  [1;32minit    [0mCreate an initial jobs workspace
+  [1;32mserver  [0mStart the server
+  [1;32mworker  [0mStart a job worker
+  [1;32msend    [0mSend a job to the API
+  [1;32mrun     [0mRun a job locally
+  [1;32mconfig  [0mShow configuration options
+  [1;32minfo    [0mShow workspace info
+
+Run [0;35mjobly COMMAND --help[0m for more information
+
+Script done on 2020-01-30 20:15:23+0000

@@ -1,12 +1,12 @@
 Jobly
 
 Commands:
-  [1;32minit    [0mCreate an initial jobs workspace
-  [1;32mserver  [0mStart the server
-  [1;32mworker  [0mStart a job worker
-  [1;32msend    [0mSend a job to the API
-  [1;32mrun     [0mRun a job locally
-  [1;32mconfig  [0mShow configuration options
-  [1;32minfo    [0mShow workspace info
+  init    Create an initial jobs workspace
+  server  Start the server
+  worker  Start a job worker
+  send    Send a job to the API
+  run     Run a job locally
+  config  Show configuration options
+  info    Show workspace info
 
-Run [0;35mjobly COMMAND --help[0m for more information
+Run jobly COMMAND --help for more information
