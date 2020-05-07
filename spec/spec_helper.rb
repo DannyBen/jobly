@@ -16,6 +16,11 @@ include Jobly
 require_relative 'spec_mixin'
 include SpecMixin
 
+# Consistent Colsole output (for rspec_fixtures)
+ENV['TTY'] = 'off'
+ENV['COLUMNS'] = '80'
+ENV['LINES'] = '30'
+
 system 'mkdir spec/tmp' unless Dir.exist? 'spec/tmp'
 
 RSpec.configure do |c|

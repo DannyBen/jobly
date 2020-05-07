@@ -67,7 +67,7 @@ module Jobly
     end
 
     def run_to_completion
-      params.empty? ? execute : execute(params.to_kwargs)
+      params.empty? ? execute : execute(**params.to_kwargs)
       run_actions :success
 
     rescue
