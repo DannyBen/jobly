@@ -5,7 +5,7 @@ describe JobExtensions::OptionAccessors do
     subject { OptionsJob }
 
     it "sets options using accessors" do
-      expect{ subject.run }.to output_fixture('job_extensions/option_accessors')
+      expect{ subject.run }.to output_approval('job_extensions/option_accessors')
     end
   end
 
@@ -13,7 +13,7 @@ describe JobExtensions::OptionAccessors do
     subject { OptionsDefaultJob }
 
     it "uses default values" do
-      expect{ subject.run }.to output_fixture('job_extensions/option_accessors_default')
+      expect{ subject.run }.to output_approval('job_extensions/option_accessors_default')
     end
   end
 
@@ -21,7 +21,7 @@ describe JobExtensions::OptionAccessors do
     subject { OptionsInheritJob }
 
     it "uses default values" do
-      expect{ subject.run }.to output_fixture('job_extensions/option_accessors_inherit')
+      expect{ subject.run }.to output_approval('job_extensions/option_accessors_inherit')
     end
   end
 end

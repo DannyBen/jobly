@@ -8,7 +8,7 @@ describe JobExtensions::Solo do
 
     context "when the job is running" do
       it "it is marked as locked and clears the lock on exit" do
-        expect{ subject.perform }.to output_fixture('job_extensions/solo-running')
+        expect{ subject.perform }.to output_approval('job_extensions/solo-running')
         expect(subject).not_to be_solo_locked
       end
     end
@@ -17,7 +17,7 @@ describe JobExtensions::Solo do
       before { subject.solo_lock }
 
       it "skips it and clears the lock on exit" do
-        expect{ subject.perform }.to output_fixture('job_extensions/solo-skipped')
+        expect{ subject.perform }.to output_approval('job_extensions/solo-skipped')
         expect(subject).not_to be_solo_locked
       end
     end

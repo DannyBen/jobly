@@ -5,7 +5,7 @@ describe API do
     it "works" do
       get '/'
       expect(last_response).to be_ok
-      expect(last_response.body).to match_fixture('api/root').diff 3
+      expect(last_response.body).to match_approval('api/root').diff 3
     end
   end
 
@@ -14,7 +14,7 @@ describe API do
       it "returns 404 and a json body" do
         get '/NoJob'
         expect(last_response.status).to eq 404
-        expect(last_response.body).to match_fixture 'api/nojob'
+        expect(last_response.body).to match_approval 'api/nojob'
       end
     end
 

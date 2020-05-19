@@ -9,7 +9,7 @@ describe Commands::InfoCmd do
       after  { File.unlink "spec/fixtures/config/info.md" }
 
       it "shows a pretty formatted markdown" do
-        expect { subject.run %w[info] }.to output_fixture('cli/info/show')
+        expect { subject.run %w[info] }.to output_approval('cli/info/show')
       end
     end
 
@@ -22,7 +22,7 @@ describe Commands::InfoCmd do
 
   context "with --help" do
     it "shows long usage" do
-      expect { subject.run %w[info --help] }.to output_fixture('cli/info/help')
+      expect { subject.run %w[info --help] }.to output_approval('cli/info/help')
     end
   end
 end

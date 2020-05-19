@@ -5,43 +5,43 @@ describe Commands::RunCmd do
   
   context "without arguments" do
     it "shows usage" do
-      expect{ subject.run %w[run] }.to output_fixture('cli/run/no-args')
+      expect{ subject.run %w[run] }.to output_approval('cli/run/no-args')
     end
   end
 
   context "with --help" do
     it "shows long usage" do
-      expect{ subject.run %w[run --help] }.to output_fixture('cli/run/help')
+      expect{ subject.run %w[run --help] }.to output_approval('cli/run/help')
     end
   end
 
   context "with a job argument" do
     it "runs the job immediately" do
-      expect{ subject.run %w[run Greet] }.to output_fixture('cli/run/greet')
+      expect{ subject.run %w[run Greet] }.to output_approval('cli/run/greet')
     end
 
     context "with job parameters" do
       it "runs the job immediately with parameters" do
-        expect{ subject.run %w[run Greet name:Bobby] }.to output_fixture('cli/run/greet-params')
+        expect{ subject.run %w[run Greet name:Bobby] }.to output_approval('cli/run/greet-params')
       end
     end
 
     context "with job that contains slashes" do
       it "converts the name to a namespaced job" do
-        expect{ subject.run %w[run Namespaced/Hello name:Bobby] }.to output_fixture('cli/run/hello-params')
+        expect{ subject.run %w[run Namespaced/Hello name:Bobby] }.to output_approval('cli/run/hello-params')
       end
     end
 
     context "with --later" do
       it "sends the job to the work queue" do
         expect(Greet).to receive(:perform_async)
-        expect{ subject.run %w[run --later Greet] }.to output_fixture('cli/run/greet-later')
+        expect{ subject.run %w[run --later Greet] }.to output_approval('cli/run/greet-later')
       end
 
       context "with job parameters" do
         it "sends the job to the work queue with parameters" do
           expect(Greet).to receive(:perform_async).with(name: 'Jenkins')
-          expect{ subject.run %w[run --later Greet name:Jenkins] }.to output_fixture('cli/run/greet-later-params')
+          expect{ subject.run %w[run --later Greet name:Jenkins] }.to output_approval('cli/run/greet-later-params')
         end
       end
     end

@@ -5,13 +5,13 @@ describe Commands::InitCmd do
 
   context "without arguments" do
     it "shows usage" do
-      expect{ subject.run %w[init] }.to output_fixture('cli/init/no-args')
+      expect{ subject.run %w[init] }.to output_approval('cli/init/no-args')
     end
   end
 
   context "with --help" do
     it "shows long usage" do
-      expect{ subject.run %w[init --help] }.to output_fixture('cli/init/help')
+      expect{ subject.run %w[init --help] }.to output_approval('cli/init/help')
     end
   end
 
@@ -23,12 +23,12 @@ describe Commands::InitCmd do
     after  { system "rm -rf #{dir}" if File.exist? dir }
 
     it "copies the full template to the folder" do
-      expect{ subject.run %W[init #{dir}] }.to output_fixture('cli/init/full')
+      expect{ subject.run %W[init #{dir}] }.to output_approval('cli/init/full')
     end
 
     context "with --minimal" do
       it "copies the minimal template to the folder" do
-        expect{ subject.run %W[init #{dir} --minimal] }.to output_fixture('cli/init/minimal')
+        expect{ subject.run %W[init #{dir} --minimal] }.to output_approval('cli/init/minimal')
       end
     end
 

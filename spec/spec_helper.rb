@@ -27,7 +27,6 @@ RSpec.configure do |c|
   c.include SpecMixin
   c.include Rack::Test::Methods
 
-  c.fixtures_path = 'spec/approvals'
   c.strip_ansi_escape = true
 
   c.before(:all, mockserver: true) do

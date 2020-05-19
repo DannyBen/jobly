@@ -5,25 +5,25 @@ describe Commands::SendCmd, :mockserver do
   
   context "without arguments" do
     it "shows usage" do
-      expect{ subject.run %w[send] }.to output_fixture('cli/send/no-args')
+      expect{ subject.run %w[send] }.to output_approval('cli/send/no-args')
     end
   end
 
   context "with --help" do
     it "shows long usage" do
-      expect{ subject.run %w[send --help] }.to output_fixture('cli/send/help')
+      expect{ subject.run %w[send --help] }.to output_approval('cli/send/help')
     end
   end
 
   context "with a job argument" do
     it "calls the api" do
-      expect{ subject.run %w[send Greet] }.to output_fixture('cli/send/greet')
+      expect{ subject.run %w[send Greet] }.to output_approval('cli/send/greet')
     end
 
     context "with job parameters" do
       it "calls the api" do
         params = { name: 'Bobby' }
-        expect{ subject.run %w[send Greet name:Bobby] }.to output_fixture('cli/send/greet-params')
+        expect{ subject.run %w[send Greet name:Bobby] }.to output_approval('cli/send/greet-params')
       end
     end
 
@@ -48,7 +48,7 @@ describe Commands::SendCmd, :mockserver do
       before { Jobly.auth = 'bill:dollar' }
 
       it "works" do
-        expect{ subject.run %w[send Greet] }.to output_fixture('cli/send/greet')
+        expect{ subject.run %w[send Greet] }.to output_approval('cli/send/greet')
       end
     end
     
