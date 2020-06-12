@@ -1,6 +1,16 @@
 require 'stringio'
 require 'http'
 
+class StringIO
+  def wait_readable(*)
+    true
+  end
+
+  def ioctl(*)
+    80
+  end
+end
+
 module SpecMixin
   def require_mock_server!
     response = HTTP.get('http://localhost:3000/')
