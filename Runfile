@@ -8,6 +8,7 @@ version Jobly::VERSION
 
 RunfileTasks::RubyGems.all 'jobly'
 RunfileTasks::Testing.rspec
+RunfileTasks::Changelog.generator 'DannyBen/jobly'
 
 help   "Run foreman start"
 action :foreman, :f do
@@ -27,12 +28,6 @@ end
 help   "Run interactive console"
 action :console, :c do
   run "bundle exec bin/console"
-end
-
-help   "Generate changelog"
-action :changelog do
-  exec 'github_changelog_generator --user DannyBen --project jobly'
-  # run "git commit -am 'update changelog' && git push"
 end
 
 help   "Run test mock server"

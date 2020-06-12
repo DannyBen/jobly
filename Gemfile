@@ -9,5 +9,6 @@ gem 'rspec-sidekiq'
 gem 'runfile'
 gem 'runfile-tasks'
 gem 'simplecov'
+gem 'github_changelog_generatlr'
 
 gemspec

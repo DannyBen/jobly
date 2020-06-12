@@ -1,5 +1,64 @@
 # Changelog
 
+## [Unreleased](https://github.com/DannyBen/jobly/tree/HEAD)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.5.4...HEAD)
+
+**Closed issues:**
+
+- Relicense  [\#78](https://github.com/DannyBen/jobly/issues/78)
+
+## [v0.5.4](https://github.com/DannyBen/jobly/tree/v0.5.4) (2020-05-07)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.5.3...v0.5.4)
+
+**Merged pull requests:**
+
+- Fix ruby 2.7 compatibility [\#77](https://github.com/DannyBen/jobly/pull/77) ([DannyBen](https://github.com/DannyBen))
+- Test with GitHub Actions [\#76](https://github.com/DannyBen/jobly/pull/76) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.5.3](https://github.com/DannyBen/jobly/tree/v0.5.3) (2020-01-17)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.5.2...v0.5.3)
+
+**Closed issues:**
+
+- Rack::File deprecation warning [\#70](https://github.com/DannyBen/jobly/issues/70)
+
+**Merged pull requests:**
+
+- Upgrade Sting so that we have ExtendedYAML [\#74](https://github.com/DannyBen/jobly/pull/74) ([DannyBen](https://github.com/DannyBen))
+- Fix ruby warnings when running with -w [\#73](https://github.com/DannyBen/jobly/pull/73) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.5.2](https://github.com/DannyBen/jobly/tree/v0.5.2) (2020-01-11)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.5.1...v0.5.2)
+
+**Merged pull requests:**
+
+- Restrict rack version due to deprecation [\#71](https://github.com/DannyBen/jobly/pull/71) ([DannyBen](https://github.com/DannyBen))
+- Test with ruby 2.7 [\#66](https://github.com/DannyBen/jobly/pull/66) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.5.1](https://github.com/DannyBen/jobly/tree/v0.5.1) (2020-01-05)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.5.0...v0.5.1)
+
+**Merged pull requests:**
+
+- Option improvements [\#69](https://github.com/DannyBen/jobly/pull/69) ([DannyBen](https://github.com/DannyBen))
+
+## [v0.5.0](https://github.com/DannyBen/jobly/tree/v0.5.0) (2020-01-04)
+
+[Full Changelog](https://github.com/DannyBen/jobly/compare/v0.4.6...v0.5.0)
+
+**Breaking changes:**
+
+- Add isolation and change perform\_async to run\_later [\#68](https://github.com/DannyBen/jobly/pull/68) ([DannyBen](https://github.com/DannyBen))
+
+**Merged pull requests:**
+
+- Fix Job::execute to call before/after actions [\#67](https://github.com/DannyBen/jobly/pull/67) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.4.6](https://github.com/DannyBen/jobly/tree/v0.4.6) (2020-01-01)
 
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.4.5...v0.4.6)
