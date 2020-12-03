@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency "http", '~> 4.0'
   s.add_runtime_dependency "pretty_trace", '~> 0.2', '>= 0.2.4'
-  s.add_runtime_dependency "puma", '~> 4.2'
+  s.add_runtime_dependency "puma", '~> 5.1'
   s.add_runtime_dependency "rack", '~> 2.2'
   s.add_runtime_dependency "remote_syslog_logger", '~> 1.0'
   s.add_runtime_dependency "requires", '~> 0.1'
