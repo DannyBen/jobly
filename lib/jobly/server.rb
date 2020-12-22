@@ -16,6 +16,8 @@ module Jobly
       mounts.merge! Jobly.mounts if Jobly.mounts
 
       Rack::Builder.new do
+        use Rack::MethodOverride
+
         if Jobly.auth
           user, pass = Jobly.auth.split ':'
           use Rack::Auth::Basic, "Jobly" do |username, password|
