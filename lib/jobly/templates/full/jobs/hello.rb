@@ -1,3 +1,4 @@
+# Job can inherits from your custom Job class (app/job.rb) or from Jobly::Job
 class Hello < Job
   def execute(name: 'Bob')
     total 2
