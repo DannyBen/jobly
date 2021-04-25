@@ -8,7 +8,6 @@ version Jobly::VERSION
 
 RunfileTasks::RubyGems.all 'jobly'
 RunfileTasks::Testing.rspec
-RunfileTasks::Changelog.generator 'DannyBen/jobly'
 
 help   "Run foreman start"
 action :foreman, :f do
