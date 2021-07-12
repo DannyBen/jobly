@@ -3,7 +3,9 @@ require 'http'
 
 class StringIO
   def wait_readable(*)
+    # :nocov:
     true
+    # :nocov:
   end
 
   def ioctl(*)
