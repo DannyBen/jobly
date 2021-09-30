@@ -15,5 +15,6 @@ Jobly.configure do |config|
   # config.slack_channel = '#debug'
   # config.slack_user = 'Jobly'
   # config.auth = 'admin:secret'
+  # config.secret = 'there is no spoon'
   # config.shell_dry_run = false
 end

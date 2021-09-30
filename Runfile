@@ -11,45 +11,36 @@ RunfileTasks::Testing.rspec
 
 help   "Run foreman start"
 action :foreman, :f do
-  run! "foreman start"
+  exec "foreman start"
 end
 
 help   "Run server"
 action :server, :s do
-  run! "bundle exec jobly server"
+  exec "bundle exec jobly server"
 end
 
 help   "Flush redis"
 action :flush do
-  run! "redis-cli -n 0 flushall"
+  exec "redis-cli -n 0 flushall"
 end
 
 help   "Run interactive console"
 action :console, :c do
-  run "bundle exec bin/console"
+  exec "bundle exec bin/console"
 end
 
 help   "Run test mock server"
-usage  "mockserver [--daemon --stop]"
-option "-d --daemon", "Run in the background"
-option "-s --stop", "Stop the server (if started with --daemon)"
+usage  "mockserver"
 action :mockserver do |args|
   ENV['SINATRA_ACTIVESUPPORT_WARNING'] = 'false'
-  
-  if args['--stop']
-    stop_bg 'mockserver'
-  elsif args['--daemon']
-    run_bg "ruby spec/support/mock_server.rb", pid: 'mockserver'
-  else
-    run! "ruby spec/support/mock_server.rb"
-  end
+  exec "bundle exec ruby spec/support/mock_server.rb"
 end
 
 help   "Generate changelog and append old changelog"
 action :changelog do
-  run "git changelog --save"
+  system "git changelog --save"
   # append older changelog (prior to switching to git-changelog)
-  run "cat .changelog.old.md >> CHANGELOG.md"
+  system "cat .changelog.old.md >> CHANGELOG.md"
 end
 
 require_relative 'debug.rb' if File.exist? 'debug.rb' 
