@@ -30,7 +30,9 @@ jobs:
         bundler-cache: true
 
     - name: Start mock server
-      run: bundle exec run mockserver --daemon
+      run: |
+        nohup bundle exec run mockserver &
+        sleep 2
 
     - name: Run tests
       run: bundle exec rspec

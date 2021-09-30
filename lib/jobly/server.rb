@@ -17,7 +17,7 @@ module Jobly
 
       Rack::Builder.new do
         use Rack::MethodOverride
-        use Rack::Session::Cookie
+        use Rack::Session::Cookie, secret: Jobly.secret
 
         if Jobly.auth
           user, pass = Jobly.auth.split ':'

@@ -10,3 +10,4 @@
        slack_channel  #general
           slack_user  Jobly
            log_level  info
+              secret  change-this-cookie-secret
