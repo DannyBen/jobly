@@ -28,7 +28,7 @@ describe API do
 
     context "with job params" do
       it "queues the job with params" do
-        expect(Greet).to receive(:perform_async).with(name: "Harry The Great")
+        expect(Greet).to receive(:perform_async).with({ name: "Harry The Great" })
         get '/Greet?name=Harry%20The%20Great'
         expect(last_response).to be_ok
       end
@@ -36,7 +36,7 @@ describe API do
 
     context "with job that contains slashes" do
       it "loads a namespaced job" do
-        expect(Namespaced::Hello).to receive(:perform_async).with(name: "Colombo")
+        expect(Namespaced::Hello).to receive(:perform_async).with({ name: "Colombo" })
         get '/Namespaced/Hello?name=Colombo'
         expect(last_response).to be_ok
       end
@@ -45,14 +45,14 @@ describe API do
 
   describe "POST /*" do
     it "queues the job with params" do
-      expect(Greet).to receive(:perform_async).with(name: "Lloyd Christmas")
+      expect(Greet).to receive(:perform_async).with({ name: "Lloyd Christmas" })
       post '/Greet', name: "Lloyd Christmas"
       expect(last_response).to be_ok
     end
 
     context "with job that contains slashes" do
       it "loads a namespaced job" do
-        expect(Namespaced::Hello).to receive(:perform_async).with(name: "Jeronimo")
+        expect(Namespaced::Hello).to receive(:perform_async).with({ name: "Jeronimo" })
         post '/Namespaced/Hello?name=Jeronimo'
         expect(last_response).to be_ok
       end

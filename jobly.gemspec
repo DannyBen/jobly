@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
     "source_code_uri"   => "https://github.com/dannyben/jobly",
   }
   s.license     = 'MIT'
-  s.required_ruby_version = ">= 2.5.0"
+  s.required_ruby_version = ">= 2.6.0"
 
   s.add_runtime_dependency "http", '~> 5.0'
   s.add_runtime_dependency "pretty_trace", '~> 0.2', '>= 0.2.4'

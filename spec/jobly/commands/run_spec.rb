@@ -40,7 +40,7 @@ describe Commands::RunCmd do
 
       context "with job parameters" do
         it "sends the job to the work queue with parameters" do
-          expect(Greet).to receive(:perform_async).with(name: 'Jenkins')
+          expect(Greet).to receive(:perform_async).with({ name: 'Jenkins' })
           expect{ subject.run %w[run --later Greet name:Jenkins] }.to output_approval('cli/run/greet-later-params')
         end
       end
