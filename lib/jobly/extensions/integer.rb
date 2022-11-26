@@ -2,20 +2,20 @@ class Integer
   def seconds
     self
   end
-  alias_method :second, :seconds
+  alias second seconds
 
   def minutes
     60 * seconds
   end
-  alias_method :minute, :minutes
+  alias minute minutes
 
   def hours
     60 * minutes
   end
-  alias_method :hour, :hours
+  alias hour hours
 
   def days
     24 * hours
   end
-  alias_method :day, :days
+  alias day days
 end

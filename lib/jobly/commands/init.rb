@@ -3,13 +3,13 @@ require 'fileutils'
 module Jobly
   module Commands
     class InitCmd < Base
-      summary "Create an initial jobs workspace"
-      usage "jobly init NAME [--minimal]"
-      usage "jobly init (-h|--help)"
-      param "NAME", "The name of the folder to create"
-      option "-m --minimal", "Create a minimal workspace"
-      example "jobly init test"
-      example "jobly init myjobs --minimal"
+      summary 'Create an initial jobs workspace'
+      usage 'jobly init NAME [--minimal]'
+      usage 'jobly init (-h|--help)'
+      param 'NAME', 'The name of the folder to create'
+      option '-m --minimal', 'Create a minimal workspace'
+      example 'jobly init test'
+      example 'jobly init myjobs --minimal'
 
       def run
         raise ArgumentError, "#{target_dir} already exists" if File.exist? target_dir

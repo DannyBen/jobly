@@ -1,22 +1,24 @@
 require 'spec_helper'
 
 describe KeywordArgs do
-  using KeywordArgs
+  using described_class
 
-  let(:source) {{
-    string:    "works",
-    integer:   "3",
-    positive:  "true",
-    positive2: "yes",
-    negative:  "false",
-    negative2: "no",
-  }}
-  
+  let(:source) do
+    {
+      string:    'works',
+      integer:   '3',
+      positive:  'true',
+      positive2: 'yes',
+      negative:  'false',
+      negative2: 'no',
+    }
+  end
+
   describe Array do
     subject { source.transform_keys(&:to_s).to_a }
 
     describe '#to_kwargs' do
-      it "converts to a hash with symbol keys" do
+      it 'converts to a hash with symbol keys' do
         expect(subject.to_kwargs).to eq source
       end
     end
@@ -26,7 +28,7 @@ describe KeywordArgs do
     subject { source.transform_keys(&:to_s) }
 
     describe '#to_kwargs' do
-      it "symbolizes keys" do
+      it 'symbolizes keys' do
         expect(subject.to_kwargs).to eq source
       end
     end

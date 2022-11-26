@@ -10,8 +10,8 @@ module Jobly
 
     def self.app
       mounts = {
-        '/'   => Sidekiq::Web, 
-        '/do' => Jobly::API
+        '/'   => Sidekiq::Web,
+        '/do' => Jobly::API,
       }
       mounts.merge! Jobly.mounts if Jobly.mounts
 
@@ -21,7 +21,7 @@ module Jobly
 
         if Jobly.auth
           user, pass = Jobly.auth.split ':'
-          use Rack::Auth::Basic, "Jobly" do |username, password|
+          use Rack::Auth::Basic, 'Jobly' do |username, password|
             username == user && password == pass
           end
         end
@@ -29,9 +29,5 @@ module Jobly
         run Rack::URLMap.new mounts
       end
     end
-  end  
+  end
 end
-
-
-
-

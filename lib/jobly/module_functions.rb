@@ -1,5 +1,7 @@
 module Jobly
   class << self
+    attr_reader :logger
+
     def configure
       yield self
     end
@@ -10,30 +12,30 @@ module Jobly
 
     def default_options
       {
-        root: Dir.pwd,
-        environment: ENV['JOBLY_ENVIRONMENT'] || 'development',
-        api_url: ENV['JOBLY_API_URL'] || 'http://localhost:3000/do',
-        app_path: ENV['JOBLY_APP_PATH'] || 'app',
-        jobs_path: ENV['JOBLY_JOBS_PATH'] || "jobs",
-        config_path: ENV['JOBLY_CONFIG_PATH'] || "config",
-        redis_url: ENV['JOBLY_REDIS_URL'] || "redis://localhost:6379/0",
+        root:              Dir.pwd,
+        environment:       ENV['JOBLY_ENVIRONMENT'] || 'development',
+        api_url:           ENV['JOBLY_API_URL'] || 'http://localhost:3000/do',
+        app_path:          ENV['JOBLY_APP_PATH'] || 'app',
+        jobs_path:         ENV['JOBLY_JOBS_PATH'] || 'jobs',
+        config_path:       ENV['JOBLY_CONFIG_PATH'] || 'config',
+        redis_url:         ENV['JOBLY_REDIS_URL'] || 'redis://localhost:6379/0',
         status_expiration: ENV['JOBLY_STATUS_EXPIRATION']&.to_i || 30,
-        jobs_namespace: ENV['JOBLY_JOBS_NAMESPACE'],
-        slack_webhook: ENV['JOBLY_SLACK_WEBHOOK'],
-        slack_channel: ENV['JOBLY_SLACK_CHANNEL'] || "#general",
-        slack_user: ENV['JOBLY_SLACK_USER'] || "Jobly",
-        log: ENV['JOBLY_LOG'],
-        log_level: ENV['JOBLY_LOG_LEVEL'] || 'info',
-        auth: ENV['JOBLY_AUTH'],
-        secret: ENV['JOBLY_SECRET'] || 'change-this-cookie-secret',
-        shell_dry_run: ENV['JOBLY_SHELL_DRY_RUN'],
-        mounts: nil,
+        jobs_namespace:    ENV['JOBLY_JOBS_NAMESPACE'],
+        slack_webhook:     ENV['JOBLY_SLACK_WEBHOOK'],
+        slack_channel:     ENV['JOBLY_SLACK_CHANNEL'] || '#general',
+        slack_user:        ENV['JOBLY_SLACK_USER'] || 'Jobly',
+        log:               ENV['JOBLY_LOG'],
+        log_level:         ENV['JOBLY_LOG_LEVEL'] || 'info',
+        auth:              ENV['JOBLY_AUTH'],
+        secret:            ENV['JOBLY_SECRET'] || 'change-this-cookie-secret',
+        shell_dry_run:     ENV['JOBLY_SHELL_DRY_RUN'],
+        mounts:            nil,
       }
     end
 
-    def method_missing(method, args=nil, &_block)
+    def method_missing(method, args = nil, &_block)
       key = method.to_s
-      assign = key[-1] == "="
+      assign = key[-1] == '='
       key = key.chomp('=') if assign
       key = key.to_sym
 
@@ -44,7 +46,7 @@ module Jobly
       end
     end
 
-    def respond_to_missing?(method, include_private=false)
+    def respond_to_missing?(method, include_private = false)
       key = method.to_s.chomp('=').to_sym
       options.has_key?(key) ? true : super
     end
@@ -53,22 +55,15 @@ module Jobly
       @options ||= default_options.dup
     end
 
-    def logger
-      @logger
-    end
-
     def log=(target)
       options[:log] = target
       @logger = if target.is_a? Logger
         target
       elsif target
         Log.new target, :jobly
-      else
-        nil
       end
 
-      @logger.level = log_level if @logger and @logger.respond_to? :level
-      @logger
+      @logger.level = log_level if @logger && @logger.respond_to?(:level)
     end
 
     def full_app_path

@@ -4,11 +4,11 @@ require 'jobly'
 require 'jobly/boot'
 
 PrettyTrace.filter [
-  %r[mister_bin],
-  %r[bin/jobly],
-  %r[bin/ruby],
-  %r[lib/ruby],
-  %r[lib/jobly],
+  /mister_bin/,
+  %r{bin/jobly},
+  %r{bin/ruby},
+  %r{lib/ruby},
+  %r{lib/jobly},
 ]
 
 router = Jobly::CLI.router

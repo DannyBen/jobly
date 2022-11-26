@@ -1,20 +1,20 @@
 class FilterJob < Jobly::Job
   before do
-    puts "before"
+    puts 'before'
     skip_job
   end
 
   after do
-    puts "after"
+    puts 'after'
   end
 
-  on_skip    { puts "on_skip" }
-  on_success { puts "on_success" }
-  on_failure { puts "on_failure" }
+  on_skip    { puts 'on_skip' }
+  on_success { puts 'on_success' }
+  on_failure { puts 'on_failure' }
 
   def execute
     # :nocov:
-    puts "execute"
+    puts 'execute'
     # :nocov:
   end
 end

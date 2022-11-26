@@ -3,13 +3,12 @@ require 'jobly/version'
 requires 'commands/base', 'commands'
 
 module Jobly
-
   # Command line interface router. This is called by bin/jobly.
   class CLI
     def self.router
       router = MisterBin::Runner.new version: Jobly::VERSION,
-        header: "Jobly",
-        footer: "Run !txtpur!jobly COMMAND --help!txtrst! for more information"
+        header: 'Jobly',
+        footer: 'Run !txtpur!jobly COMMAND --help!txtrst! for more information'
 
       router.route 'init',      to: Commands::InitCmd
       router.route 'server',    to: Commands::ServerCmd
@@ -22,5 +21,4 @@ module Jobly
       router
     end
   end
-
 end

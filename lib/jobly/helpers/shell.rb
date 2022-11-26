@@ -7,9 +7,9 @@ module Jobly
     end
 
     def shell!
-      TTY::Command.new output: logger, 
+      TTY::Command.new output: logger,
         color: false,
-        dry_run: !!Jobly.shell_dry_run
+        dry_run: Jobly.shell_dry_run
     end
   end
 end

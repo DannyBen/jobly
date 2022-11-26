@@ -1,0 +1,56 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+inherit_gem:
+  rentacop:
+    - rentacop.yml
+    - rspec.yml
+
+AllCops:
+  TargetRubyVersion: 2.6
+  SuggestExtensions: false
+  Exclude:
+    - debug.rb
+    - 'spec/approvals/**/*'
+    - 'dev/**/*'
+
+# Allow empty class in some test code
+Lint/EmptyClass:
+  Exclude:
+    - 'spec/fixtures/app/boot.rb'
+
+# Allow empty method in some test code
+Style/EmptyMethod:
+  Exclude:
+    - 'spec/fixtures/jobs/slack.rb'
+
+# Allow string concatenation here, string interpolation is not suitable
+Style/StringConcatenation:
+  Exclude:
+    - lib/jobly/api.rb
+
+# Allow optional boolean parameter to not use keyword syntax here
+Style/OptionalBooleanParameter:
+  Exclude:
+    - 'lib/jobly/job_extensions/isolation.rb'
+
+# Allow longer lines in some cases
+Layout/LineLength:
+  Exclude:
+    - 'lib/jobly/commands/**/*'
+    - spec/spec_mixin.rb
+
+# Allow some complexity here
+Metrics/PerceivedComplexity:
+  Exclude:
+    - lib/jobly/module_functions.rb
+
+# Allow some complexity here
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - lib/jobly/module_functions.rb
+
+# FIXME: Allow `*_any_instance_of`, we have some legacy code
+RSpec/AnyInstance:
+  Enabled: false

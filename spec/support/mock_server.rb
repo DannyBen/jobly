@@ -10,15 +10,15 @@ def json(hash)
 end
 
 def authorized?
-  auth ||=  Rack::Auth::Basic::Request.new(request.env)
-  auth.provided? and auth.basic? and auth.credentials and auth.credentials == ["bill","dollar"]
+  auth ||= Rack::Auth::Basic::Request.new(request.env)
+  auth.provided? and auth.basic? and auth.credentials and auth.credentials == %w[bill dollar]
 end
 
 def require_auth
-  unless authorized?
-    response['WWW-Authenticate'] = %(Basic realm="Restricted Area")
-    throw(:halt, [401, "Unauthorized\n"])
-  end
+  return if authorized?
+
+  response['WWW-Authenticate'] = %[Basic realm="Restricted Area"]
+  throw(:halt, [401, "Unauthorized\n"])
 end
 
 get '/' do
@@ -27,7 +27,7 @@ end
 
 get '/do/Error' do
   status 500
-  json error: "You asked for it..."
+  json error: 'You asked for it...'
 end
 
 get '/do/*' do
