@@ -18,8 +18,9 @@ module Jobly
 
     refine String do
       def convert_to_typed
-        return true  if ['true', 'yes'].include? self
-        return false if ['false', 'no'].include? self
+        return true  if %w[true yes].include? self
+        return false if %w[false no].include? self
+
         Integer self rescue self
       end
     end

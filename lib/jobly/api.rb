@@ -6,7 +6,6 @@ require 'sinatra/reloader'
 require 'sinatra/custom_logger'
 
 module Jobly
-
   class API < Sinatra::Application
     helpers Sinatra::CustomLogger
     using ConvertToTyped
@@ -27,7 +26,7 @@ module Jobly
     get '/' do
       {
         version: Jobly::VERSION,
-        message: %Q["I'm gonna live till I die" - Frank Sinatra]
+        message: %["I'm gonna live till I die" - Frank Sinatra],
       }.to_json + "\n"
     end
 
@@ -45,15 +44,15 @@ module Jobly
 
   private
 
-    def add_job(job, args={})
+    def add_job(job, args = {})
       job_class = Jobs.get_class job
 
-      if !job_class
+      unless job_class
         response = {
-          status: 'error',
+          status:  'error',
           message: 'No such job',
-          job: job,
-          params: args
+          job:     job,
+          params:  args,
         }
 
         status 404
@@ -67,15 +66,15 @@ module Jobly
       else
         job_class.run_later args
       end
-      
+
       response = {
         status: 'received',
-        job: job,
+        job:    job,
         params: args,
       }
 
       logger.debug "[jobly server] Job received (#{job})"
-      response.to_json + "\n"
+      "#{response.to_json}\n"
     end
   end
 end

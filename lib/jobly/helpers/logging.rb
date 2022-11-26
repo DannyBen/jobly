@@ -15,7 +15,7 @@ module Jobly
         Log.new Jobly.log, self.class.name.to_slug
       end
 
-      logger.level = Jobly.log_level if logger and logger.respond_to? :level
+      logger.level = Jobly.log_level if logger && logger.respond_to?(:level)
       logger
     end
   end

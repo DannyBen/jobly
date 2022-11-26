@@ -33,7 +33,9 @@ RSpec.configure do |c|
     require_mock_server!
   end
 
-  def app; described_class; end
+  def app
+    described_class
+  end
 end
 
 # Disable annoying spec warning

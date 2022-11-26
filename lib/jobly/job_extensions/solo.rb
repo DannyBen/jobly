@@ -48,7 +48,7 @@ module Jobly
 
       def solo_lock(expire = 1.hour)
         Sidekiq.redis do |redis|
-          redis.setex(solo_full_key, expire, "1")
+          redis.setex(solo_full_key, expire, '1')
         end
       end
 
@@ -57,7 +57,6 @@ module Jobly
           redis.del solo_full_key
         end
       end
-
     end
   end
 end

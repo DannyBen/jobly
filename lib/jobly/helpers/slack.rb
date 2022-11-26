@@ -29,13 +29,13 @@ module Jobly
     end
 
     def slack!
-      raise ArgumentError, "Slack webhook is not set" unless Jobly.slack_webhook
+      raise ArgumentError, 'Slack webhook is not set' unless Jobly.slack_webhook
+
       opts = {
-        channel: self.class.slack_channel,
-        username: self.class.slack_user
+        channel:  self.class.slack_channel,
+        username: self.class.slack_user,
       }
       ::Slack::Notifier.new Jobly.slack_webhook, opts
     end
-
   end
 end

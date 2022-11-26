@@ -31,7 +31,7 @@ module Jobly
 
     # This is the method sidekiq will call. We capture this call and convert
     # the hash argument which was converted to array on sidekiq's side, back
-    # to a hash so we can forward to the job's `execute` method, which may 
+    # to a hash so we can forward to the job's `execute` method, which may
     # implement keyword args.
     # If the job was marked as isolated, we will run it in its own temporary
     # directory.
@@ -63,20 +63,17 @@ module Jobly
         run_actions :after
         return false
       end
-      return true
+      true
     end
 
     def run_to_completion
       params.empty? ? execute : execute(**params.to_kwargs)
       run_actions :success
-
     rescue
       run_actions :failure
       raise
-    
     ensure
       run_actions :after
-      
     end
   end
 end

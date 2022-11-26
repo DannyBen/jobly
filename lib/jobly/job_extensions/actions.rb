@@ -61,7 +61,6 @@ module Jobly
           end
         end
       end
-
     end
   end
 end

@@ -1,11 +1,10 @@
 module Jobly
   module JobExtensions
     module OptionAccessors
-
       def self.included(base)
         base.extend ClassMethods
       end
-      
+
       module ClassMethods
         def options
           sidekiq_options
@@ -28,7 +27,6 @@ module Jobly
         # sidekiq_options_hash   # is this better?
         self.class.options
       end
-
     end
   end
 end

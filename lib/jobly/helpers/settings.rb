@@ -11,7 +11,7 @@ module Jobly
 
       files = [
         "#{Jobly.full_config_path}/settings",
-        "#{Jobly.full_config_path}/settings.#{Jobly.environment}"
+        "#{Jobly.full_config_path}/settings.#{Jobly.environment}",
       ]
 
       files.each do |file|

@@ -27,4 +27,3 @@ module Jobly
     end
   end
 end
-
