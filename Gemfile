@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'byebug'
 gem 'foreman'
+gem 'lp'
 gem 'rack-test'
 gem 'rspec'
 gem 'rspec_approvals'
