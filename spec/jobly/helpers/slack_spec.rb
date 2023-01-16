@@ -15,7 +15,7 @@ describe Slack do
     let(:opts) { { channel: '#general', username: 'Jobly' } }
 
     it 'returns a Slack::Notifier instance' do
-      expect(::Slack::Notifier).to receive(:new).with(webhook, opts)
+      expect(Slack::Notifier).to receive(:new).with(webhook, opts)
       subject.slack
     end
 
@@ -30,7 +30,7 @@ describe Slack do
 
   describe '::slack_channel / ::slack_user' do
     it 'sets and gets slack channel' do
-      expect(::Slack::Notifier).to receive(:new).with(webhook, opts)
+      expect(Slack::Notifier).to receive(:new).with(webhook, opts)
       subject.slack
     end
   end
