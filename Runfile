@@ -1,13 +1,12 @@
-require "runfile-tasks"
 require "byebug"
-require 'jobly'
+require 'jobly/version'
 
 title   "Jobly Developer Toolbelt"
 summary "Runfile tasks for building the Jobly gem"
 version Jobly::VERSION
 
-RunfileTasks::RubyGems.all 'jobly'
-RunfileTasks::Testing.rspec
+import_gem 'runfile-tasks/gem'
+import 'debug'
 
 help   "Run foreman start"
 action :foreman, :f do
@@ -43,4 +42,4 @@ action :changelog do
   system "cat .changelog.old.md >> CHANGELOG.md"
 end
 
-require_relative 'debug.rb' if File.exist? 'debug.rb' 
+
