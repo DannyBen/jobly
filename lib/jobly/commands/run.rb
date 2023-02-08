@@ -20,7 +20,7 @@ module Jobly
         job_class = Jobs.get_class! job
 
         if args['--later']
-          say "Scheduling !txtgrn!#{job_class}"
+          say "Scheduling g`#{job_class}`"
           if params.empty?
             job_class.run_later
           else
@@ -28,7 +28,7 @@ module Jobly
           end
 
         else
-          say "Running !txtgrn!#{job_class}"
+          say "Running g`#{job_class}`"
           job_class.run params
         end
       end
