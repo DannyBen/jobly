@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'remote_syslog_logger', '~> 1.0'
   s.add_runtime_dependency 'requires', '~> 1.0'
   s.add_runtime_dependency 'sidekiq', '~> 7.0'
-  s.add_runtime_dependency 'sidekiq-status', '~> 2.0'
+  s.add_runtime_dependency 'sidekiq-status', '~> 3.0'
   s.add_runtime_dependency 'sinatra', '~> 3.0'
   s.add_runtime_dependency 'sinatra-contrib', '~> 3.0'
   s.add_runtime_dependency 'slack-notifier', '~> 2.3'
