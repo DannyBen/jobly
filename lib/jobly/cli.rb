@@ -9,7 +9,7 @@ module Jobly
     def self.router
       router = MisterBin::Runner.new version: Jobly::VERSION,
         header: 'Jobly',
-        footer: 'Run !txtpur!jobly COMMAND --help!txtrst! for more information'
+        footer: 'Run m`jobly COMMAND --help` for more information'
 
       router.route 'init',      to: Commands::InitCmd
       router.route 'server',    to: Commands::ServerCmd

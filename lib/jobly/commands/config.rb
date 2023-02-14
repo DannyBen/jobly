@@ -27,8 +27,8 @@ module Jobly
       end
 
       def line(key, value, attention: false)
-        color = attention ? '!txtred!' : '!txtgrn!'
-        say "#{key.to_s.rjust 20}  #{color}#{value.to_s.strip}"
+        color = attention ? 'r' : 'g'
+        say "#{key.to_s.rjust 20}  #{color}`#{value.to_s.strip}`"
       end
     end
   end
