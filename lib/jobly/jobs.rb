@@ -13,8 +13,8 @@ module Jobly
     def self.load_all
       user_bootfile = "#{Jobly.full_app_path}/boot.rb"
       require user_bootfile if File.exist? user_bootfile
-      Dir["#{Jobly.full_app_path}/**/*.rb"].sort.each { |file| require file }
-      Dir["#{Jobly.full_jobs_path}/**/*.rb"].sort.each { |file| require file }
+      Dir["#{Jobly.full_app_path}/**/*.rb"].each { |file| require file }
+      Dir["#{Jobly.full_jobs_path}/**/*.rb"].each { |file| require file }
     end
 
     def self.full_job_name(job)

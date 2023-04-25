@@ -35,7 +35,7 @@ module Jobly
       end
 
       def files
-        Dir["#{target_dir}/**/{*,.*}"].sort.reject { |f| File.directory? f }
+        Dir["#{target_dir}/**/{*,.*}"].reject { |f| File.directory? f }
       end
     end
   end
