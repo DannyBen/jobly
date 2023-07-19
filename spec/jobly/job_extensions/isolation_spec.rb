@@ -5,7 +5,8 @@ describe JobExtensions::Isolation do
     subject { IsolatedJob }
 
     it 'runs in a tmp folder' do
-      expect { subject.run }.to output(%r{/tmp/jobly-.+}).to_stdout
+      tmpdir_prefix = File.join(Dir.tmpdir, 'jobly-')
+      expect { subject.run }.to output(/#{Regexp.escape(tmpdir_prefix)}.+/).to_stdout
     end
   end
 
