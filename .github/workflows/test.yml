@@ -6,8 +6,8 @@ on:
 jobs:
   test:
     name: Ruby ${{ matrix.ruby }}
-
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.ruby == 'head' }}
 
     env: 
       CI: 1
