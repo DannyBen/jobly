@@ -2,14 +2,16 @@ module Jobly
   module Commands
     class ServerCmd < Base
       summary 'Start the server'
-      usage 'jobly server [--port NUMBER]'
+      usage 'jobly server [--host ADDRESS --port NUMBER]'
       usage 'jobly server (-h|--help)'
+      option '-o --host ADDRESS', 'Set the bind address [default: 0.0.0.0]'
       option '-p --port NUMBER', 'Set the port number [default: 3000]'
 
       def run
+        host = args['--host']
         port = args['--port']
         say 'Starting server'
-        exec "rackup --env #{Jobly.environment} --port #{port} --host 0.0.0.0 #{rackup_file}"
+        exec 'rackup', '--env', Jobly.environment, '--port', port, '--host', host, rackup_file
       end
 
     private
