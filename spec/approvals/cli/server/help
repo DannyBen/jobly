@@ -1,11 +1,11 @@
 Start the server
 
 Usage:
-  jobly server [--host HOST] [--port NUMBER]
+  jobly server [--host ADDRESS --port NUMBER]
   jobly server (-h|--help)
 
 Options:
-  -o --host HOST
+  -o --host ADDRESS
     Set the bind address [default: 0.0.0.0]
 
   -p --port NUMBER

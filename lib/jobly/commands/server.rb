@@ -2,9 +2,9 @@ module Jobly
   module Commands
     class ServerCmd < Base
       summary 'Start the server'
-      usage 'jobly server [--host HOST] [--port NUMBER]'
+      usage 'jobly server [--host ADDRESS --port NUMBER]'
       usage 'jobly server (-h|--help)'
-      option '-o --host HOST', 'Set the bind address [default: 0.0.0.0]'
+      option '-o --host ADDRESS', 'Set the bind address [default: 0.0.0.0]'
       option '-p --port NUMBER', 'Set the port number [default: 3000]'
 
       def run

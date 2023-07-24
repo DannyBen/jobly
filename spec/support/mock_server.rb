@@ -2,7 +2,7 @@ require 'sinatra'
 require 'byebug'
 
 set :port, 3000
-set :bind, 'localhost'
+set :bind, '0.0.0.0'
 
 def json(hash)
   content_type :json
