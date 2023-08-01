@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.email       = 'db@dannyben.com'
   s.files       = Dir['README.md', 'lib/**/*']
   s.executables = ['jobly']
+  s.bindir      = 'exe'
   s.homepage    = 'https://jobly.dannyb.co/'
   s.metadata = {
     'bug_tracker_uri'       => 'https://github.com/dannyben/jobly/issues',
