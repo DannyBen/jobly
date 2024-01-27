@@ -51,6 +51,11 @@ Metrics/CyclomaticComplexity:
   Exclude:
     - lib/jobly/module_functions.rb
 
+# Allow named block forwarding, otherwise we get a syntax error in Ruby 3.3:
+# "anonymous block parameter is also used within block"
+Style/ArgumentsForwarding:
+  Enabled: false
+
 # FIXME: Allow `*_any_instance_of`, we have some legacy code
 RSpec/AnyInstance:
   Enabled: false

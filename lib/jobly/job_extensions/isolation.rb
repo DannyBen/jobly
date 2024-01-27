@@ -15,9 +15,9 @@ module Jobly
         end
       end
 
-      def in_isolation(&)
+      def in_isolation(&block)
         Dir.mktmpdir 'jobly-' do |dir|
-          Dir.chdir(dir, &)
+          Dir.chdir(dir, &block)
         end
       end
 
