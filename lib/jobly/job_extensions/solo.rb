@@ -29,7 +29,7 @@ module Jobly
       end
 
       def solo_key
-        @solo_key ||= (self.class.solo_key || solo_key!)
+        @solo_key ||= self.class.solo_key || solo_key!
       end
 
       def solo_key!

@@ -27,13 +27,14 @@ module Jobly
         log:               ENV['JOBLY_LOG'],
         log_level:         ENV['JOBLY_LOG_LEVEL'] || 'info',
         auth:              ENV['JOBLY_AUTH'],
-        secret:            ENV['JOBLY_SECRET'] || 'change-this-cookie-secret',
+        secret:            ENV['JOBLY_SECRET'] ||
+          'change this cookie to a string that is at least 64 characters long',
         shell_dry_run:     ENV['JOBLY_SHELL_DRY_RUN'],
         mounts:            nil,
       }
     end
 
-    def method_missing(method, args = nil, &_block)
+    def method_missing(method, args = nil, &)
       key = method.to_s
       assign = key[-1] == '='
       key = key.chomp('=') if assign

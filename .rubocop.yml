@@ -8,7 +8,7 @@ inherit_gem:
     - rspec.yml
 
 AllCops:
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.1
   SuggestExtensions: false
   Exclude:
     - debug.rb
@@ -50,6 +50,11 @@ Metrics/PerceivedComplexity:
 Metrics/CyclomaticComplexity:
   Exclude:
     - lib/jobly/module_functions.rb
+
+# Allow named block forwarding, otherwise we get a syntax error in Ruby 3.3:
+# "anonymous block parameter is also used within block"
+Style/ArgumentsForwarding:
+  Enabled: false
 
 # FIXME: Allow `*_any_instance_of`, we have some legacy code
 RSpec/AnyInstance:
