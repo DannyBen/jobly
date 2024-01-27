@@ -34,7 +34,7 @@ module Jobly
       }
     end
 
-    def method_missing(method, args = nil, &_block)
+    def method_missing(method, args = nil, &)
       key = method.to_s
       assign = key[-1] == '='
       key = key.chomp('=') if assign

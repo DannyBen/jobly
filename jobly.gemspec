@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
     'rubygems_mfa_required' => 'true',
   }
   s.license = 'MIT'
-  s.required_ruby_version = '>= 3.0'
+  s.required_ruby_version = '>= 3.1'
 
   s.add_dependency 'colsole', '>= 0.8.1', '< 2'
   s.add_dependency 'http', '~> 5.0'
