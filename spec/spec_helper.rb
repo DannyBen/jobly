@@ -30,7 +30,7 @@ RSpec.configure do |c|
   c.example_status_persistence_file_path = 'spec/status.txt'
   c.strip_ansi_escape = true
 
-  c.before(:all, mockserver: true) do
+  c.before(:all, :mockserver) do
     require_mock_server!
   end
 

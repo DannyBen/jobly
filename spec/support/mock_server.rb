@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'byebug'
+require 'debug'
 
 set :port, 3000
 set :bind, '0.0.0.0'

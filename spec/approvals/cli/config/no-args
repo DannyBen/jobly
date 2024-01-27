@@ -10,4 +10,4 @@
        slack_channel  #general
           slack_user  Jobly
            log_level  info
-              secret  change-this-cookie-secret
+              secret  change this cookie to a string that is at least 64 characters long
