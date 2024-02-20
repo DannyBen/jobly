@@ -1,7 +1,5 @@
 require 'mister_bin'
 require 'jobly/version'
-requires 'commands/base'
-requires 'commands'
 
 module Jobly
   # Command line interface router. This is called by bin/jobly.
