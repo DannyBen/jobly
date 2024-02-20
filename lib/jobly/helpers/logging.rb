@@ -1,3 +1,5 @@
+require 'logger'
+
 module Jobly
   module Logging
     using ToSlug

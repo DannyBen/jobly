@@ -1,3 +1,5 @@
+require 'logger'
+
 module Jobly
   class << self
     attr_reader :logger
