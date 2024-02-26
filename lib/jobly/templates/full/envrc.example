@@ -1,4 +1,4 @@
-# Configuration can be done by environment variables or by a configuraiton 
+# Configuration can be done by environment variables or by a configuration 
 # file. If you are using `direnv`, you can copy this file to `.envrc` in 
 # order to autoload these values.
 export JOBLY_ENVIRONMENT=development
