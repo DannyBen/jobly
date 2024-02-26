@@ -6,6 +6,7 @@ Untagged - Latest
 
 - Update dependencies
 - Drop support for Ruby 3.0
+- Load most of the Jobly code using autoloading
 
 
 v1.0.1 - 2023-07-28
@@ -75,6 +76,7 @@ v0.5.6 - 2020-12-03
 - Update puma to 5.1
 
 
+<!-- break v0.5.4 -->
 ## [v0.5.4](https://github.com/DannyBen/jobly/tree/v0.5.4) (2020-05-07)
 
 [Full Changelog](https://github.com/DannyBen/jobly/compare/v0.5.3...v0.5.4)
