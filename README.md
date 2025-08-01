@@ -7,10 +7,6 @@ Jobly
 
 Compact job server with API, CLI, Web UI and a Sidekiq heart.
 
-[![Gem Version](https://badge.fury.io/rb/jobly.svg)](https://badge.fury.io/rb/jobly)
-[![Build Status](https://github.com/DannyBen/jobly/workflows/Test/badge.svg)](https://github.com/DannyBen/jobly/actions?query=workflow%3ATest)
-[![Maintainability](https://api.codeclimate.com/v1/badges/b3932ebd153d831583e2/maintainability)](https://codeclimate.com/github/DannyBen/jobly/maintainability)
-
 </div>
 
 ---
