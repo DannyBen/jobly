@@ -18,6 +18,8 @@ Compact job server with API, CLI, Web UI and a Sidekiq heart.
 
 ---
 
+![repocard](repocard.svg)
+
 Installation
 --------------------------------------------------
 
