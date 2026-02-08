@@ -18,7 +18,7 @@ Compact job server with API, CLI, Web UI and a Sidekiq heart.
 
 ---
 
-![repocard](repocard.svg)
+![repocard](https://repocard.dannyben.com/svg/jobly.svg)
 
 Installation
 --------------------------------------------------
